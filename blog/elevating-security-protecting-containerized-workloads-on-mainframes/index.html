@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en-US" class="is-fullheight">
+
+<!-- Mirrored from www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Aug 2024 01:55:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fast.wistia.com/" crossorigin>
+<link rel="shortcut icon" href="../../wp-content/themes/aqua3/favicon.ico" />
+<link rel="icon" type="image/png" href="../../wp-content/themes/aqua3/favicon_192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../wp-content/themes/aqua3/apple-touch-icon-180x180.png" />
+
+	<!-- Start cookieyes banner --> <script data-minify="1" id="cookieyes" type="text/javascript" src="../../wp-content/cache/min/1/client_data/5bcdbce45953e61e74b8da56/scriptff17.js?ver=1724591342"></script> <!-- End cookieyes banner -->
+	
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v23.3 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Elevating Security: Protecting Containerized Workloads on Mainframes</title><link rel="preload" data-rocket-preload as="image" href="../../wp-content/uploads/2024/03/no-title-Blog-main-image-IBM-Z-series-techincal.jpg" fetchpriority="high">
+	<meta name="description" content="Aqua protects containerized applications running on IBM Z-Series LinuxOne infrastructure, providing robust full lifecycle, dev to production security" />
+	<link rel="canonical" href="index.html" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Elevating Security: Protecting Containerized Workloads on Mainframes" />
+	<meta property="og:description" content="Aqua protects containerized applications running on IBM Z-Series LinuxOne infrastructure, providing robust full lifecycle, dev to production security" />
+	<meta property="og:url" content="https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/" />
+	<meta property="og:site_name" content="Aqua" />
+	<meta property="article:publisher" content="https://www.facebook.com/AquaSecTeam" />
+	<meta property="article:published_time" content="2024-03-06T07:58:45+00:00" />
+	<meta property="article:modified_time" content="2024-04-22T17:54:07+00:00" />
+	<meta property="og:image" content="https://www.aquasec.com/wp-content/uploads/2024/03/Blog-main-image-IBM-Z-series-techincal.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="628" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@AquaSecTeam" />
+	<meta name="twitter:site" content="@AquaSecTeam" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Ona Blanchette" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="9 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/#article","isPartOf":{"@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/"},"author":{"name":"Ona Blanchette","@id":"https://www.aquasec.com/#/schema/person/185e29b064441d4036b87a2be8368f72"},"headline":"Elevating Security: Protecting Containerized Workloads on Mainframes","datePublished":"2024-03-06T07:58:45+00:00","dateModified":"2024-04-22T17:54:07+00:00","mainEntityOfPage":{"@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/"},"wordCount":1824,"publisher":{"@id":"https://www.aquasec.com/#organization"},"image":{"@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/#primaryimage"},"thumbnailUrl":"https://www.aquasec.com/wp-content/uploads/2024/03/Blog-main-image-IBM-Z-series-techincal.jpg","keywords":["Hybrid Cloud Security","IBM Cloud"],"articleSection":["CONTAINER SECURITY"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/","url":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/","name":"Elevating Security: Protecting Containerized Workloads on Mainframes","isPartOf":{"@id":"https://www.aquasec.com/#website"},"primaryImageOfPage":{"@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/#primaryimage"},"image":{"@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/#primaryimage"},"thumbnailUrl":"https://www.aquasec.com/wp-content/uploads/2024/03/Blog-main-image-IBM-Z-series-techincal.jpg","datePublished":"2024-03-06T07:58:45+00:00","dateModified":"2024-04-22T17:54:07+00:00","description":"Aqua protects containerized applications running on IBM Z-Series LinuxOne infrastructure, providing robust full lifecycle, dev to production security","breadcrumb":{"@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/#primaryimage","url":"https://www.aquasec.com/wp-content/uploads/2024/03/Blog-main-image-IBM-Z-series-techincal.jpg","contentUrl":"https://www.aquasec.com/wp-content/uploads/2024/03/Blog-main-image-IBM-Z-series-techincal.jpg","width":1200,"height":628},{"@type":"BreadcrumbList","@id":"https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aquasec.com/"},{"@type":"ListItem","position":2,"name":"Elevating Security: Protecting Containerized Workloads on Mainframes"}]},{"@type":"WebSite","@id":"https://www.aquasec.com/#website","url":"https://www.aquasec.com/","name":"Aqua","description":"Cloud Native Security, Container Security &amp; Serverless Security","publisher":{"@id":"https://www.aquasec.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.aquasec.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.aquasec.com/#organization","name":"Aqua Security","url":"https://www.aquasec.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.aquasec.com/#/schema/logo/image/","url":"https://www.aquasec.com/wp-content/uploads/2016/05/aqua_logo_fullcolor.png","contentUrl":"https://www.aquasec.com/wp-content/uploads/2016/05/aqua_logo_fullcolor.png","width":491,"height":177,"caption":"Aqua Security"},"image":{"@id":"https://www.aquasec.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/AquaSecTeam","https://x.com/AquaSecTeam","https://www.instagram.com/aquaseclife/","https://www.linkedin.com/company/aquasecteam/","https://github.com/aquasecurity"]},{"@type":"Person","@id":"https://www.aquasec.com/#/schema/person/185e29b064441d4036b87a2be8368f72","name":"Ona Blanchette","url":"https://www.aquasec.com/author/ona/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='main-style-css' href='../../wp-content/themes/aqua3/css/aqua3.mind4e9.css?ver=1.0.657' type='text/css' media='all' />
+<script type="text/javascript" data-cookieconsent="ignore" src="../../wp-content/themes/aqua3/js/aqua3.mind4e9.js?ver=1.0.657" id="aqua3_js-js"></script>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><meta name="msvalidate.01" content="EB7D71A4041DC995BE2F2C787A9183FD" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5N9T3H');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body class="post-template-default single single-post postid-18751 single-format-standard">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9T3H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+				
+<div id="page-18751" class="post-page post-18751 post type-post status-publish format-standard has-post-thumbnail hentry category-container-security tag-hybrid-cloud-security tag-ibm-cloud">
+
+<!-- hero starts -->
+
+<div class="hero_wrap with_borderline">
+	<div class="hero header_wrap no_header_image">
+		<div class="hero-head">
+						<!-- header starts -->
+	<div class="v2_header_navbar_wrap">
+		<nav class="navbar is-fixed-top">
+
+			<div class="header_topbar_wrap">
+				<div class="container">
+					<div class="header_topbar">
+						<div class="columns is-multiline is-gapless">
+														<div class="column is-12-desktop is-12-tablet topbar_right">
+								<div class="topbar_links">
+																			<a class="topbar_link is_featured is-hidden-mobile dl_event_click" href="../bucket-monopoly-breaching-aws-accounts-through-shadow-resources/index.html" data-dl-event="none" data-dl-category="none" data-dl-action="topbar featured" data-dl-label="Bucket Monopoly: Breaching AWS Accounts Through Shadow Resources">Bucket Monopoly: Breaching AWS Accounts Through Shadow Resources</a>
+																																							<a href="https://cloud.aquasec.com/signin" target="_blank" class="topbar_link">Sign in</a>
+																					<a href="../../about-us/contact-us/index.html"  class="topbar_link">Contact</a>
+																					<a href="https://support.aquasec.com/support/home" target="_blank" class="topbar_link">Support</a>
+																					<a href="../../about-us/careers/index.html"  class="topbar_link">We're hiring!</a>
+											
+																	</div><!-- topbar_links -->
+							</div><!-- is-5 -->
+						</div><!-- columns -->
+					</div><!-- header_topbar-->
+				</div><!-- container -->
+			</div><!-- header_topbar_wrap -->
+
+
+			<div class="container is-small">
+				<div class="navbar-brand">
+										<a class="navbar-item logo dl_event_click" href="../../index.html" title="Aqua Security" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Aqua Security Logo">Aqua Security</a>
+					<div role="button" tabindex="0" class="navbar-burger burger" title="Menu"><span></span><span></span><span></span></div>
+				</div>
+
+				<div class="navigation_shadow main_navigation_shadow"></div>
+				<div id="main-navigation-navbar" class="navbar-menu">
+
+					<div class="navbar-start">
+
+						
+						
+
+						<div class="navbar-item toplevel_item navbar-item-platform">
+														<a class="navbar-link is-arrowless dl_event_click" data-toggle="dropdown" href="../../aqua-cloud-native-security-platform/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Platform">Platform</a>
+													</div><!-- ends - platform -->
+
+						<div class="navbar-item toplevel_item navbar-item-solutions">
+														<a class="navbar-link is-arrowless dl_event_click" data-toggle="dropdown" href="../../solutions/aws-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Solutions">Solutions</a>
+													</div><!-- ends - solutions -->
+
+
+						
+						<div class="navbar-item toplevel_item navbar-item-resources">
+														<a class="navbar-link is-arrowless dl_event_click" data-toggle="dropdown" href="../../resources/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Resources">Resources</a>
+													</div><!-- ends - resources -->
+ 
+
+						<div class="navbar-item toplevel_item navbar-item-company">
+														<a class="navbar-link is-arrowless dl_event_click" data-toggle="dropdown" href="../../about-us/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Company">Company</a>
+													</div><!-- ends - company -->
+
+
+						
+
+							
+							<div class="breaklevel_item with_arrow break-navbar-item-platform">Platform</div>
+							<div id="navbar-dropdown-platform" class="navbar-dropdown navbar_dropdown_wrap nav_platform_wrap">
+								<div class="container nav_container">
+	<div class="columns is-gapl*ess is-marginless is-multiline">
+		<div class="column is-3-widescreen is-3-desktop is-12-tablet white_bg_left_column">
+
+			<div class="platform_leftctas_wrap fadeInUp">
+
+							<a class="platform_main_left_cta" href="../../aqua-cloud-native-security-platform/index.html" >
+					<div class="cta_pretitle">Aqua Platform</div>
+					<div class="cta_title">Unified Cloud Security</div>
+					<div class="cta_subtitle">Gain total lifecycle visibility, reduce risks and stop attacks with the most comprehensive, fully integrated Cloud Native Application Protection Platform (CNAPP)</div>
+					<div class="button arrowlinkbutton is-royalblue cta_link">Platform overview</div>
+				</a><!-- platform_main_left_cta -->
+			
+
+			</div><!-- platform_leftctas_wrap -->
+
+
+							<div class="platform_left_cta_links fadeInUp animationDelay_1">
+					<ul>
+											<li><a class="button arrowlinkbutton is-royalblue link_item dl_event_click" href="../../integrations/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_left_cta_links" data-dl-label="">All platform Integrations</a></li>
+											<li><a class="button arrowlinkbutton is-royalblue link_item dl_event_click" href="../../demo/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_left_cta_links" data-dl-label="">Aqua CNAPP in action</a></li>
+										</ul>
+				</div><!-- platform_leftctas_links -->
+			
+
+						<div class="opensource_left_cta is-hidden-mobile fadeInUp animationDelay_2">
+					
+									<div class="opensource_links_wrap">
+
+														<div class="navbar_opensource_links_title"><a class="dl_event_click" href="../../products/open-source-projects/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_opensource" data-dl-label="Aqua Open Source"><div class="button arrowlinkbutton is-royalblue">Aqua Open Source</div><div class="small_link_subtitle">Driving security innovation in the cloud native community</div></a></div>
+							
+							<ul class="columns is-multiline opensource_links">
+															<li class="navbar-item menu_item_with_icon icon_trivy"><a class="dl_event_click" href="https://trivy.dev/" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_opensource" data-dl-label="Trivy">Trivy</a></li>
+															<li class="navbar-item menu_item_with_icon icon_tracee"><a class="dl_event_click" href="../../products/tracee/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_opensource" data-dl-label="Tracee">Tracee</a></li>
+													</ul>
+					</div>
+							</div><!-- opensource_left_cta -->
+			
+
+		</div><!-- is-3 -->
+
+		<div class="column is-7-widescreen is-6-desktop is-12-tablet">
+
+			<div class="columns is-multiline is-gap*less">
+				<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+					
+					<div class="v2_generic_links_wrap platform_links_wrap platform_shiftleft_links_wrap fadeInUp animationDelay_1">
+
+												<div class="section nav_col">
+
+							
+																			<div class="v2_generic_links_title platform_links_title">Dev Security</div>
+									
+							
+
+															<ul class="v2_generic_links platform_links">
+																					<li><a class="dl_event_click" href="../../products/software-supply-chain-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftleft" data-dl-label="Software Supply Chain Security">Software Supply Chain Security<div class="small_link_subtitle">Protect your code, tools, and processes</div></a></li>
+																							<li><a class="dl_event_click" href="../../products/container-vulnerability-scanning/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftleft" data-dl-label="Vulnerability Management">Vulnerability Management<div class="small_link_subtitle">Reduce vulnerability noise and fix issues fast</div></a></li>
+																							<li><a class="dl_event_click" href="../../products/container-analysis/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftleft" data-dl-label="Advanced Malware Protection">Advanced Malware Protection<div class="small_link_subtitle">Stop stealthy malware from dev to cloud</div></a></li>
+																				</ul>
+													</div>
+						
+					</div><!-- platform_shiftleft_links_wrap -->
+
+				</div><!-- is-6 shiftleft -->
+				<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+
+				<div class="v2_generic_links_wrap platform_links_wrap platform_shiftright_links_wrap fadeInUp animationDelay_2">
+
+												<div class="section nav_col">
+
+
+							
+																			<div class="v2_generic_links_title platform_links_title">Cloud Security</div>
+									
+							
+
+																<ul class="v2_generic_links platform_links">
+
+																							<li><a class="dl_event_click" href="../../products/cwpp-cloud-workload-protection/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftright" data-dl-label="Cloud Workload Protection (CWPP)">Cloud Workload Protection (CWPP)<div class="small_link_subtitle">Runtime protection for every cloud workload</div></a></li>
+																									<li><a class="dl_event_click" href="../../products/cspm/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftright" data-dl-label="Cloud Security Posture Management">Cloud Security Posture Management<div class="small_link_subtitle">Extend traditional CSPM with workload visibility</div></a></li>
+																									<li><a class="dl_event_click" href="../../products/kubernetes-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftright" data-dl-label="Kubernetes Security Posture Management">Kubernetes Security Posture Management<div class="small_link_subtitle">Holistic Kubernetes Security for the Enterprise</div></a></li>
+																					</ul>
+													</div>
+						
+					</div><!-- platform_shiftright_links_wrap -->
+
+				</div><!-- is-6 shiftright -->
+
+
+
+									<div class="column is-12-widescreen is-12-desktop is-12-tablet">
+						<div class="platform_news_wrap is-hidden-mobile fadeInUp animationDelay_3">
+
+															<div class="platform_news_title">What's New?</div>
+							
+							<ul class="platform_news">
+
+																			<li><a class="dl_event_click" href="../securing-genai-safeguarding-llm-powered-applications-with-aqua/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform news" data-dl-label="Securing GenAI: Safeguarding LLM-Powered Applications">Securing GenAI: Safeguarding LLM-Powered Applications</a></li>
+																					<li><a class="dl_event_click" href="../discover-cloud-security-issues-faster-with-event-based-scanning/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform news" data-dl-label="Discover Cloud Security Issues Faster with Event-based Scanning">Discover Cloud Security Issues Faster with Event-based Scanning</a></li>
+																					<li><a class="dl_event_click" href="index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform news" data-dl-label="Elevating Security: Protecting Containerized Workloads on Mainframes">Elevating Security: Protecting Containerized Workloads on Mainframes</a></li>
+																					<li><a class="dl_event_click" href="../aws-kubernetes-security-and-compliance/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform news" data-dl-label="Elevating AWS Kubernetes Security and Compliance">Elevating AWS Kubernetes Security and Compliance</a></li>
+																	</ul>
+
+						</div><!-- platform_news_wrap -->
+					</div><!-- is-12 -->
+				
+
+
+			</div><!-- columns -->
+
+
+
+			
+
+
+		</div><!-- is-6 -->
+
+
+
+		<div class="column is-2-widescreen is-3-desktop is-hidden-mobile nav_col_wrap nav_cta_col white_bg_right_column v2_resource_card_column">
+			<div class="section nav_col v2_resource_card_wrap fadeInUp animationDelay_3">
+
+					<a href="https://info.aquasec.com/gartner_cnapp" target="_blank" class="card resource_link_card resource_item dl_promo_click" data-dl-id="18751" data-dl-name="The new Gartner® Market Guide for Cloud-Native Application Protection Platforms (CNAPP)" data-dl-creative="Research and Reports" data-dl-position="main menu platform cta">
+
+		<div class="card-image resource_image_wrap"><img class="resource_image" src="../../wp-content/uploads/2024/04/Gartner-CNAPP-2024-thumb-2.jpg" alt="" loading="lazy" /></div>
+
+		<div class="card-content">
+
+			<div class="resource_type">Research and Reports</div>
+			<div class="resource_title">The new Gartner® Market Guide for Cloud-Native Application Protection Platforms (CNAPP)</div>
+			
+			
+			
+		</div><!-- card-content -->
+
+		<div class="card-footer">
+			<div class="resource_arrowlink">Get the expert guide by Gartner</div>
+					</div>
+
+	</a><!-- resource-item -->
+
+
+
+			</div><!-- nav_col -->
+		</div><!-- column -->
+
+	</div><!-- columns -->
+</div><!-- nav_container -->								<div class="navigation_shadow dropdown_navigation_shadow"></div>
+							</div><!-- navbar-dropdown -->
+
+							<div class="breaklevel_item with_arrow break-navbar-item-solutions">Solutions</div>
+							<div id="navbar-dropdown-solutions" class="navbar-dropdown navbar_dropdown_wrap nav_solutions_wrap">
+								<div class="container nav_container">
+	<div class="columns is-gapl*ess is-marginless is-multiline row-eq-height">
+		
+		<div class="column is-10-widescreen is-6-desktop is-12-tablet">
+
+			
+			<div class="columns is-multiline is-gap*less row-eq-height height-100">
+
+
+			
+				<div class="column is-4-widescreen is-5-desktop is-12-tablet white_bg_left_column">
+
+					<div class="v2_generic_links_wrap solutions_links_wrap v2_usecases_links_wrap fadeInUp">
+
+												<div class="section nav_col">
+
+
+							
+																			<div class="v2_generic_links_title solutions_links_title">Use Cases</div>
+									
+															
+							
+																<ul class="v2_generic_links solutions_links">
+
+																							<li><a class="dl_event_click" href="../../products/container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Container Security">Container Security<div class="small_link_subtitle">Modern container security for cloud native Apps</div></a></li>
+																									<li><a class="dl_event_click" href="../../use-cases/cndr-cloud-native-detection-and-reponse/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Detection and Response">Detection and Response<div class="small_link_subtitle">Cloud native detection & Response (CNDR)</div></a></li>
+																									<li><a class="dl_event_click" href="../../use-cases/multi-cloud-and-hybrid-cloud/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Hybrid-Cloud & Multi-Cloud">Hybrid-Cloud & Multi-Cloud<div class="small_link_subtitle">security for hybrid and multi-cloud deployments</div></a></li>
+																									<li><a class="dl_event_click" href="../../use-cases/container-auditing-compliance/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Prove Compliance">Prove Compliance<div class="small_link_subtitle">Controls for PCI, HIPAA, GDPR, and beyond</div></a></li>
+																									<li><a class="dl_event_click" href="../../use-cases/devops-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Automate DevSecOps">Automate DevSecOps<div class="small_link_subtitle">Security and speed without compromise</div></a></li>
+																					</ul>
+													</div>
+						
+					</div><!-- v2_usecases_links_wrap -->
+
+				</div><!-- is-4 usecases -->
+
+
+
+
+				<div class="column is-8-widescreen is-7-desktop is-12-tablet">
+
+					<div class="v2_generic_links_wrap solutions_links_wrap fadeInUp animationDelay_1">
+						<div class="columns is-multiline is-gapless">
+							<div class="column is-12">
+
+																											<a class="v2_generic_links_title solutions_links_title dl_event_click" href="../../solutions/aws-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="Solutions">Solutions</a>
+																	
+							</div><!-- is-12 -->
+
+
+																<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+										<ul class="v2_generic_links solutions_links">
+
+																											<li><a class="dl_event_click" href="../../solutions/docker-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="Docker Security">Docker Security<div class="small_link_subtitle">Enterprise-Grade security for Docker environments</div></a></li>
+																													<li><a class="dl_event_click" href="../../solutions/aws-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="AWS Cloud Security">AWS Cloud Security<div class="small_link_subtitle">Protect cloud native workloads on AWS</div></a></li>
+																													<li><a class="dl_event_click" href="../../solutions/google-cloud-kubernetes-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="Google Cloud Security">Google Cloud Security<div class="small_link_subtitle">Secure K8s apps on Google Cloud Platform</div></a></li>
+																															</ul>
+																</div><!-- column is-6 -->
+																<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+																	<ul class="v2_generic_links solutions_links">
+																														<li><a class="dl_event_click" href="../../solutions/red-hat-openshift-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="OpenShift Security">OpenShift Security<div class="small_link_subtitle">Cloud Native Security for Red Hat OpenShift </div></a></li>
+																													<li><a class="dl_event_click" href="../../solutions/vmware-tanzu/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="VMware Tanzu Security">VMware Tanzu Security<div class="small_link_subtitle">Native security across VMware Tanzu</div></a></li>
+																													<li><a class="dl_event_click" href="../../solutions/azure-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="Azure Cloud Security">Azure Cloud Security<div class="small_link_subtitle">Full Lifecycle Security for Azure Container Workloads</div></a></li>
+																								</ul><!-- solutions links -->
+									</div><!-- is-6 solutions -->
+								
+						</div><!-- columns -->
+					</div><!-- solutions_links_wrap -->
+
+
+
+					<div class="v2_generic_links_wrap verticals_links_wrap fadeInUp animationDelay_1">
+						<div class="columns is-multiline is-gapless">
+							<div class="column is-12">
+
+																											<a class="v2_generic_links_title verticals_links_title dl_event_click" href="../../solutions/federal/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="verticals" data-dl-label="Industry">Industry</a>
+																	
+							</div><!-- is-12 -->
+
+
+																<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+										<ul class="v2_generic_links verticals_links">
+
+																											<li><a class="dl_event_click" href="../../solutions/federal/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="verticals" data-dl-label="Federal">Federal<div class="small_link_subtitle">CNAPP solution for Federal Government</div></a></li>
+																															</ul>
+																</div><!-- column is-6 -->
+																<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+																	<ul class="v2_generic_links verticals_links">
+																														<li><a class="dl_event_click" href="../../solutions/finance/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="verticals" data-dl-label="Financial Services">Financial Services<div class="small_link_subtitle">One platform for financial services</div></a></li>
+																								</ul><!-- verticals links -->
+									</div><!-- is-6 verticals -->
+								
+						</div><!-- columns -->
+					</div><!-- verticals_links_wrap -->
+
+
+				</div><!-- is-8 solutions links -->
+
+			</div><!-- columns -->
+			
+
+
+
+		</div><!-- is-6 -->
+
+
+
+		<div class="column is-2-widescreen is-3-desktop is-hidden-mobile nav_col_wrap nav_cta_col white_bg_right_column v2_resource_card_column">
+			<div class="section nav_col v2_resource_card_wrap fadeInUp animationDelay_2">
+
+					<a href="https://info.aquasec.com/aws-misconfigurations" target="_blank" class="card resource_link_card resource_item dl_promo_click" data-dl-id="18751" data-dl-name="The 15 Riskiest AWS Misconfigurations" data-dl-creative="Whitepaper" data-dl-position="main menu solutions cta">
+
+		<div class="card-image resource_image_wrap"><img class="resource_image" src="../../wp-content/uploads/2021/01/15-misfigs-Resources-thumbnail-1.jpg" alt="" loading="lazy" /></div>
+
+		<div class="card-content">
+
+			<div class="resource_type">Whitepaper</div>
+			<div class="resource_title">The 15 Riskiest AWS Misconfigurations</div>
+			
+			
+			
+		</div><!-- card-content -->
+
+		<div class="card-footer">
+			<div class="resource_arrowlink">Download Now</div>
+					</div>
+
+	</a><!-- resource-item -->
+
+
+
+
+			</div><!-- nav_col -->
+		</div><!-- column -->
+
+	</div><!-- columns -->
+</div><!-- nav_container -->								<div class="navigation_shadow dropdown_navigation_shadow"></div>
+							</div><!-- navbar-dropdown -->
+
+							
+							<div class="breaklevel_item with_arrow break-navbar-item-resources">Resources</div>
+							<div id="navbar-dropdown-resources" class="navbar-dropdown navbar_dropdown_wrap nav_resources_wrap">
+								<div class="container nav_container">
+	<div class="columns is-gapl*ess is-marginless is-multiline">
+
+		<div class="column is-3-widescreen is-3-desktop is-12-tablet white_bg_left_column">
+
+			<div class="resources_leftctas_wrap fadeInUp">
+
+							<a class="resources_main_left_cta" href="../index.html" >
+					<div class="cta_pretitle">The best of cloud native</div>
+					<div class="cta_title">Aqua Blog</div>
+					<div class="cta_subtitle">Expert insight, best practices and advice on cloud native security, trends, threat intelligence and compliance</div>
+					<div class="button arrowlinkbutton is-royalblue cta_link">Read the Blog</div>
+				</a><!-- resources_main_left_cta -->
+							
+
+
+
+			</div><!-- resources_leftctas_wrap -->
+
+
+							<div class="resources_left_cta_links fadeInUp animationDelay_1">
+					<ul>
+											<li><a class="button arrowlinkbutton is-royalblue link_item dl_event_click" href="../sec-vs-solarwinds-ciso/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources_left_cta_links" data-dl-label="SEC vs. SolarWinds: A Cybersecurity Game Changer for CISOs">SEC vs. SolarWinds: A Cybersecurity Game Changer for CISOs</a></li>
+											<li><a class="button arrowlinkbutton is-royalblue link_item dl_event_click" href="../accenture-and-aqua-partner-to-empower-cloud-security/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources_left_cta_links" data-dl-label="Accenture and Aqua Partner to Empower Cloud Security">Accenture and Aqua Partner to Empower Cloud Security</a></li>
+										</ul>
+				</div><!-- resources_leftctas_links -->
+			
+
+
+		</div><!-- is-3 -->
+
+
+		<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+			<div class="columns is-multiline is-gap*less">
+
+				<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+					<div class="v2_generic_links_wrap resources_links_wrap v2_resources_resources_links_wrap fadeInUp animationDelay_1">
+
+												<div class="section nav_col">
+
+
+							
+																			<div class="v2_generic_links_title resources_links_title">Resources</div>
+									
+							
+																<ul class="v2_generic_links resources_links">
+
+																							<li><a class="dl_event_click" href="../../resources/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources resources" data-dl-label="Resources Center">Resources Center<div class="small_link_subtitle">eBooks, Data sheets, Whitepapers, Webinars, and much more</div></a></li>
+																									<li><a class="dl_event_click" href="../../resources/virtual-container-security-channel/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources resources" data-dl-label="The Cloud Native Channel">The Cloud Native Channel<div class="small_link_subtitle">Cloud native security webinars & videos</div></a></li>
+																									<li><a class="dl_event_click" href="https://aquademy.aquasec.com/"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources resources" data-dl-label="Aquademy">Aquademy<div class="small_link_subtitle">The Aqua academy</div></a></li>
+																					</ul>
+													</div>
+						
+					</div><!-- v2_resources_resources_links_wrap -->
+
+				</div><!-- is-6 resources -->
+
+
+				<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+					<div class="v2_generic_links_wrap resources_links_wrap v2_resources_wiki_links_wrap">
+
+												<div class="section nav_col">
+
+
+							
+								
+																<ul class="v2_generic_links resources_links fadeInUp animationDelay_3">
+
+																							<li><a class="dl_event_click" href="../../cloud-native-academy/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Cloud Native Wiki"><span class="wiki_link_icon"></span>Cloud Native Wiki<div class="small_link_subtitle">The educational center for everything cloud native</div></a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/docker-container/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Docker Containers">Docker Containers</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/supply-chain-security/supply-chain-security-mitigating-the-supply-chain-threat/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Software supply chain security">Software supply chain security</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/cspm/cloud-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Cloud security">Cloud security</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/kubernetes-101/kubernetes-complete-guide/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Kubernetes">Kubernetes</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/application-security/application-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Application Security">Application Security</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/devsecops/devsecops/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="DevSecOps">DevSecOps</a></li>
+																					</ul>
+													</div>
+						
+					</div><!-- v2_resources_wiki_links_wrap -->
+
+				</div><!-- is-6 wiki -->
+
+
+							
+
+
+			</div><!-- columns -->
+			
+		</div><!-- is-9 -->
+
+
+		<div class="column is-3-desktop is-12-tablet is-hidden-mobile white_bg_right_column">
+
+			<div class="research_section_wrap">
+
+			<a href="../../research/index.html" class="research_cta fadeInUp animationDelay_4" target="_blank">
+											<img src="../../wp-content/uploads/2019/08/Horizontal-Dark-Abyss.svg" alt="" class="research_cta_logo" width="100" height="115" />
+					
+
+											<div class="subtitle research_cta_title">Aqua research team</div>
+					
+											<div class="subtitle research_cta_subtitle">Security research focused on the cloud native stack to identify new threats and attack vectors</div>
+					
+					<div class="button arrowlinkbutton is-royalblue research_cta_button" target="_blank">More security research </div>
+			</a><!-- research_cta -->
+										<div class="research_latest_wrap fadeInUp animationDelay_5">
+
+						<a href="https://info.aquasec.com/2023-cloud-native-threat-report" class="research_latest_link" target="_blank">
+							<span class="research_latest_report_title">2023 Annual Aqua Nautilus Research</span><br />A Comprehensive Cloud Native Threat Report						</a>
+						</div><!-- research_latest -->
+						
+			</div><!-- research_section_wrap -->
+		</div><!-- column -->
+
+
+	</div><!-- columns -->
+</div><!-- nav_container -->								<div class="navigation_shadow dropdown_navigation_shadow"></div>
+							</div><!-- navbar-dropdown -->
+
+							<div class="breaklevel_item with_arrow break-navbar-item-company">Company</div>
+							<div id="navbar-dropdown-company" class="navbar-dropdown navbar_dropdown_wrap nav_company_wrap">
+								<div class="container nav_container">
+	<div class="columns is-gap*less is-marginless">
+		
+
+		<div class="column is-3-widescreen is-3-desktop is-12-tablet white_bg_left_column">
+		
+			
+
+
+							
+
+									<div class="company_left_awards_title fadeInUp animationDelay_1">Recognized Leadership</div>
+				
+				<div class="v2_generic_links_wrap company_left_awards fadeInUp animationDelay_1">
+					<ul class="v2_generic_links awards_links">
+											<li><a class="award_item dl_event_click" href="https://info.aquasec.com/ciso-choice-awards?utm_source=zoom&amp;utm_campaign=cwpp&amp;utm_content=ciso_awards" target="_blank"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_left_awards" data-dl-label="CISO Choice Awards">
+							<div class="award_title">CISO Choice Awards</div>
+							<div class="award_details">Winner for Cloud Workload Protection Platform (CWPP)</div>
+						</a></li>
+											<li><a class="award_item dl_event_click" href="https://info.aquasec.com/forrester-tei" target="_blank"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_left_awards" data-dl-label="Forrester Consulting: The Total Economic Impact™ of Aqua CNAPP">
+							<div class="award_title">Forrester Consulting: The Total Economic Impact™ of Aqua CNAPP</div>
+							<div class="award_details">90% Reduction in vulnerability research and detection time</div>
+						</a></li>
+											<li><a class="award_item dl_event_click" href="https://info.aquasec.com/frost-sullivan-cnapp" target="_blank"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_left_awards" data-dl-label="Frost & Sullivan CNAPP report">
+							<div class="award_title">Frost & Sullivan CNAPP report</div>
+							<div class="award_details">Top innovation leader</div>
+						</a></li>
+										</ul>
+				</div><!-- company_left_awards -->
+			
+
+
+			
+
+		</div><!-- is-3 -->
+
+
+		<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+
+			<div class="v2_generic_links_wrap company_links_wrap  fadeInUp animationDelay_2">
+				<div class="columns is-multiline is-gapless">
+					<div class="column is-12">
+
+						
+					</div><!-- is-12 -->
+
+
+												<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+								<ul class="v2_generic_links company_links">
+
+																							<li><a class="dl_event_click" href="../../about-us/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="About Us">About Us</a></li>
+																									<li><a class="dl_event_click" href="../../customers/index.html" target="_self" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Customers">Customers</a></li>
+																									<li><a class="dl_event_click" href="../../partners/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Partners">Partners</a></li>
+																									<li><a class="dl_event_click" href="../../about-us/news/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Newsroom">Newsroom</a></li>
+																											</ul>
+														</div><!-- column is-6 -->
+														<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+															<ul class="v2_generic_links company_links">
+																										<li><a class="dl_event_click" href="../../events/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Upcoming Events">Upcoming Events</a></li>
+																									<li><a class="dl_event_click" href="../../careers/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Careers">Careers</a></li>
+																									<li><a class="dl_event_click" href="https://success.aquasec.com/"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Support">Support</a></li>
+																									<li><a class="dl_event_click" href="../../services/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Services">Services</a></li>
+																				</ul><!-- company links -->
+							</div><!-- is-6 company -->
+								
+													<div class="column is-12-widescreen is-12-desktop is-12-tablet">
+								<div class="contactdetails_links_wrap  fadeInUp animationDelay_3">
+		
+																			<div class="contactdetails_links_title">Connect</div>
+											
+									<ul class="contactdetails_links">
+																					<li class="navbar-item menu_item_with_icon icon_mail"><a class="dl_event_click" href="../../about-us/contact-us/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Contact">Contact</a></li>
+																					<li class="navbar-item menu_item_with_icon icon_twitter"><a class="dl_event_click" href="https://x.com/AquaSecurityHQ" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Twitter">Twitter</a></li>
+																					<li class="navbar-item menu_item_with_icon icon_facebook"><a class="dl_event_click" href="https://www.facebook.com/AquaSecTeam" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Facebook">Facebook</a></li>
+																					<li class="navbar-item menu_item_with_icon icon_linkedin"><a class="dl_event_click" href="https://www.linkedin.com/company/aquasecteam" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Linkedin">Linkedin</a></li>
+																					<li class="navbar-item menu_item_with_icon icon_instagram"><a class="dl_event_click" href="https://www.instagram.com/aquaseclife/" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Instagram">Instagram</a></li>
+																			</ul>
+		
+								</div><!-- contactdetails_links_wrap -->
+							</div><!-- is-12 -->
+						
+				</div><!-- columns -->
+			</div><!-- company_links_wrap -->
+
+		</div><!-- is-8 -->
+
+		<div class="column is-3-widescreen is-4-desktop is-hidden-mobile white_bg_right_column company_recent_news_wrap">
+								<div class="v2_generic_links_wrap company_links_wrap fadeInUp animationDelay_4">
+					<div class="section nav_col">
+								<a class="v2_generic_links_title company_links_title dl_event_click" href="../../about-us/news/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_news" data-dl-label="News">News</a>
+		
+		<div class="newsroom_items_wrap">
+					
+									<a class="newsroom_item dl_event_click" href="../../news/gartner-cnapp-2024/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_news" data-dl-label="Aqua Security Named a Representative Vendor in the 2024 Gartner® Market Guide for Cloud-Native Application Protection Platforms (CNAPP)">
+											<div class="newsroom_image"><img width="140" height="140" src="../../wp-content/themes/aqua3/images/aqua_default_140x140.png" alt="Aqua logo" loading="lazy"></div>
+						<div class="newsroom_title"><div>Aqua Security Named a Representative Vendor in the 2024 Gartner® Market Guide for Cloud-Native Application Protection Platforms (CNAPP)</div></div>
+					</a>
+					
+									<a class="newsroom_item dl_event_click" href="https://www.csoonline.com/article/3484842/s3-shadow-buckets-leave-aws-accounts-open-to-compromise.html/amp/" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_news" data-dl-label="S3 shadow buckets leave AWS accounts open to compromise">
+											<div class="newsroom_image"><img width="140" height="140" src="../../wp-content/uploads/2023/09/Newsroom-logos-CSO-140x140.jpg" class="attachment-140x140 size-140x140 wp-post-image" alt="" loading="lazy" decoding="async" srcset="https://www.aquasec.com/wp-content/uploads/2023/09/Newsroom-logos-CSO-140x140.jpg 140w, https://www.aquasec.com/wp-content/uploads/2023/09/Newsroom-logos-CSO-150x150.jpg 150w, https://www.aquasec.com/wp-content/uploads/2023/09/Newsroom-logos-CSO.jpg 200w" sizes="(max-width: 140px) 100vw, 140px" /></div>
+						<div class="newsroom_title"><div>S3 shadow buckets leave AWS accounts open to compromise</div></div>
+					</a>
+					
+									<a class="newsroom_item dl_event_click" href="../../news/traceeshark-open-source-tool/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_news" data-dl-label="Aqua Security Unveils Traceeshark: Open Source Tool Combining Tracee’s Dynamic Analysis of Linux Malware with Wireshark">
+											<div class="newsroom_image"><img width="140" height="140" src="../../wp-content/themes/aqua3/images/aqua_default_140x140.png" alt="Aqua logo" loading="lazy"></div>
+						<div class="newsroom_title"><div>Aqua Security Unveils Traceeshark: Open Source Tool Combining Tracee’s Dynamic Analysis of Linux Malware with Wireshark</div></div>
+					</a>
+			</div><!-- newsroom_items_wrap -->	 
+	
+						</div>
+				</div>
+
+		</div><!-- is-4 -->
+
+	</div><!-- columns -->
+</div><!-- nav_container -->
+								<div class="navigation_shadow dropdown_navigation_shadow"></div>
+							</div><!-- navbar-dropdown -->
+
+						
+
+					</div><!-- navbar-start -->
+
+
+					<div class="navbar-end">
+
+						<!-- nav_rightmenu starts -->
+
+												<div class="navbar-item search_box">Search</div>
+
+												<div class="navbar-item">
+							<div class="field is-grouped">
+																	<p class="control">
+								
+									
+																			<a href="../../demo/index.html"  class="button is-primary type_btn dl_event_click" data-dl-event="trial_header" data-dl-category="trial" data-dl-action="click button" data-dl-label="header_right_menu_button">Get Started</a>
+																		
+																	</p>
+								
+																						</div>
+						</div><!-- navbar-item -->
+					<!-- nav_rightmenu ends -->
+
+
+					</div><!-- navbar-end -->
+
+
+					
+						<div class="search_box_wrap">
+							<div class="search_box_target">
+																															</div><!-- search_box_target -->
+							<div class="search_box_close"></div>
+						</div><!-- search_box_wrap -->
+
+					
+				</div><!-- main-navigation-navbar -->
+
+
+			</div><!-- container -->
+
+			
+		</nav>
+	</div><!-- v2_header_navbar_wrap -->
+
+
+	
+<script type="text/javascript">
+var $jnv1 = jQuery.noConflict();
+$jnv1(document).ready(function(){
+
+	// main menu
+	$jnv1('.v2_header_navbar_wrap .navbar-burger').on('click', function() {
+		$jnv1(this).toggleClass('is-active');
+		$jnv1('.v2_header_navbar_wrap .navbar-menu').toggleClass('is-active');
+		$jnv1('html').toggleClass('scroll-disable');
+	});
+
+		$jnv1('.navbar-item-platform,#navbar-dropdown-platform:not(.break_show-dropdown)').hover(function() {
+		$jnv1('.navbar-item-platform').addClass('show-hover');
+		$jnv1('#navbar-dropdown-platform').addClass('show-dropdown animated');
+	}, function() {
+		$jnv1('.navbar-item-platform').removeClass('show-hover');
+		$jnv1('#navbar-dropdown-platform').removeClass('show-dropdown animated');
+	});
+
+	$jnv1('.break-navbar-item-platform').on('click', function() {
+		$jnv1(this).toggleClass('break_is-active');
+		$jnv1('#navbar-dropdown-platform').toggleClass('break_show-dropdown');
+	});
+
+	$jnv1('.navbar-item-solutions,#navbar-dropdown-solutions:not(.break_show-dropdown)').hover(function() {
+		$jnv1('.navbar-item-solutions').addClass('show-hover');
+		$jnv1('#navbar-dropdown-solutions').addClass('show-dropdown animated');
+	}, function() {
+		$jnv1('.navbar-item-solutions').removeClass('show-hover');
+		$jnv1('#navbar-dropdown-solutions').removeClass('show-dropdown animated');
+	});
+
+	$jnv1('.break-navbar-item-solutions').on('click', function() {
+		$jnv1(this).toggleClass('break_is-active');
+		$jnv1('#navbar-dropdown-solutions').toggleClass('break_show-dropdown');
+	});
+			
+			
+	$jnv1('.navbar-item-resources,#navbar-dropdown-resources:not(.break_show-dropdown)').hover(function() {
+		$jnv1('.navbar-item-resources').addClass('show-hover');
+		$jnv1('#navbar-dropdown-resources').addClass('show-dropdown animated');
+	}, function() {
+		$jnv1('.navbar-item-resources').removeClass('show-hover');
+		$jnv1('#navbar-dropdown-resources').removeClass('show-dropdown animated');
+	});
+
+	$jnv1('.break-navbar-item-resources').on('click', function() {
+		$jnv1(this).toggleClass('break_is-active');
+		$jnv1('#navbar-dropdown-resources').toggleClass('break_show-dropdown');
+	});
+
+
+			
+
+	$jnv1('.navbar-item-company,#navbar-dropdown-company:not(.break_show-dropdown)').hover(function() {
+		$jnv1('.navbar-item-company').addClass('show-hover');
+		$jnv1('#navbar-dropdown-company').addClass('show-dropdown animated');
+	}, function() {
+		$jnv1('.navbar-item-company').removeClass('show-hover');
+		$jnv1('#navbar-dropdown-company').removeClass('show-dropdown animated');
+	});
+
+	$jnv1('.break-navbar-item-company').on('click', function() {
+		$jnv1(this).toggleClass('break_is-active');
+		$jnv1('#navbar-dropdown-company').toggleClass('break_show-dropdown');
+	});
+
+
+});
+</script>		</div><!-- hero-head -->
+
+		
+		<div class="hero-foot">
+					</div><!-- hero-foot -->
+
+	</div><!-- hero -->
+
+	
+	
+	
+
+</div><!-- hero_wrap --><!-- hero ends -->
+
+<div class="post_pagewrap">		<!-- blog header title starts -->
+									<div class="section header_title_wrap anima*table">
+					<div class="container">
+						<div class="header_title_content_wrap match_blog_width">
+							
+							<a href="../index.html" class="page_label has_left_arrow fadeInUp">Aqua Blog</a>	
+							<h1 class="title page_title fadeInUp">Elevating Security: Protecting Containerized Workloads on Mainframes</h1>
+														
+
+							
+							<div class="post_meta">
+								<div class="post_author_info"><div class="avatars_wrap"><a href="../../authors/cassandra-stanek/index.html" class="avatar_wrap"><div class="author_avatar" style="background-image:url(../../wp-content/uploads/2024/02/Cassandra-Stanek-Profile-126x140.jpg);"></div></a><a href="../../authors/erin-stephan/index.html" class="avatar_wrap"><div class="author_avatar" style="background-image:url(../../wp-content/uploads/2023/12/Erinjpg.jpg);"></div></a></div><div class="names_wrap"><a href="../../authors/cassandra-stanek/index.html" class="name_wrap">Cassandra Stanek</a><a href="../../authors/erin-stephan/index.html" class="name_wrap"> Erin Stephan</a><div class="post_date">March 6, 2024</div></div></div></div><!-- post_meta -->
+
+						</div><!-- header_title_content_wrap -->
+
+													<div class="post_cover_image">
+								<div class="match_blog_width">
+									<img fetchpriority="high" src="../../wp-content/uploads/2024/03/no-title-Blog-main-image-IBM-Z-series-techincal.jpg" alt="Elevating Security: Protecting Containerized Workloads on Mainframes" width="850" height="450" />
+								</div>
+							</div>
+						
+					</div><!-- container -->
+				</div><!-- header_title_wrap -->
+		<!-- blog header title ends -->
+
+	<!-- content starts -->
+	
+	<div class="section content_wrap main_content_wrap">
+		<div class="container">
+			<div class="main_content_column match_blog_width">
+				<div class="content">
+					
+					<p><span data-contrast="none">Mainframes and containers represent two distinct yet impactful elements in today&#8217;s modern computing architecture. Mainframes are powerful, centralized computing systems known for their reliability, scalability, and ability to handle massive workloads. While containers, on the other hand, have emerged as a lightweight and flexible solution for deploying, scaling, and managing cloud native applications across various environments.  </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335557856&quot;:16777215,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></p>
+<p><span id="more-18751"></span></p>
+<p><span data-contrast="none">These two technologies complement each other enabling enterprise businesses ease of adapting a hybrid, highly scalable approach to their architectures, particularly in regulated industries such as finance, healthcare, and government where the use of public cloud-based Kubernetes infrastructure might not be the preferred approach. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335557856&quot;:16777215,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="none">In this blog we describe how Aqua protects containerized applications running on IBM Z-Series LinuxOne infrastructure, providing robust full lifecycle, dev to production security that can be managed uniformly across both private and public clouds. </span><span data-contrast="auto">The enduring partnership between Aqua Security and IBM has spanned various divisions of IBM including, not limited to, IBM Consulting, IBM Power Systems. This robust alliance takes an exciting leap forward with the extension of support to IBM Z-Series mainframes</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335557856&quot;:16777215,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></p>
+<h3 aria-level="2"><span data-contrast="none">Applying the agility of containers the IBM Z-series mainframe  </span><span data-ccp-props="{&quot;134245418&quot;:true,&quot;134245529&quot;:true,&quot;201341983&quot;:0,&quot;335559738&quot;:40,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></h3>
+<p><span data-contrast="auto">For many in the mainframe world the utilization of containerized architectures helps to solve the business challenges around agility and speed in developing new applications. The IBM Z-Series is a mainframe architecture that combines integrity, throughput, reliability while providing DevOps the modern access and capability of using containers to provide agility and speed of building applications in these environments.  </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">The Z-series is used by many of the most highly regulated enterprise businesses to help them take advantage of agile modern applications and DevOps practices. Allowing for the building (or rebuilding) of containerizing applications for m</span><span data-contrast="none">any of the world&#8217;s largest financial institutions who rely on the powerful IBM Z series for running their applications on premises. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">Challenges arise though around securing such hybrid architectures, as traditional means of security for mainframe architectures do not identify vulnerabilities in images and hosts, or </span><a href="../../cloud-native-academy/supply-chain-security/security-misconfigurations/index.html"><span data-contrast="none">misconfigurations</span></a><span data-contrast="auto"> of the container and orchestration layer. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">While the IBM Z-Series provides its clients the ability to maintain robust performance and enable faster development, paired with significant security for encryption, there is still a need to protect applications at the container workload and OS level, providing the ability to detect, prevent, and react to threats.  </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">Building applications in the cloud is different, security should be too. Recognizing the different challenges with securing ephemeral containers and orchestration layers, IBM turned to Aqua as the only solution robust enough to deliver enterprise security for the mainframe at scale.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<h2 aria-level="2"><span data-contrast="none">Challenges of securing containers on mainframe </span><span data-ccp-props="{&quot;134245418&quot;:true,&quot;134245529&quot;:true,&quot;201341983&quot;:0,&quot;335559738&quot;:40,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></h2>
+<p><a href="../../cloud-native-academy/container-security/container-security/index.html"><span data-contrast="none">Container security</span></a><span data-contrast="auto"> requires a different approach compared to security in traditional environments. This is something Aqua is keenly aware of as container security has been our focus for over 8 years. Containerized environments, typically orchestrated by systems like Kubernetes, have a fundamentally different architecture compared to traditional VM-based infrastructures. While organizations leverage </span><a href="../../solutions/red-hat-openshift-container-security/index.html"><span data-contrast="none">OpenShift</span></a><span data-contrast="auto"> for management and scaling their enterprise container deployments on premises, it lacks the ability to enforce any type of vulnerability or risk policy of images during development or runtime. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">Applying security is so difficult because of the transitory use, often being created and dismantled in response to demand. This rapid change in the environment can be challenging for traditional security tools to keep up with, as they are designed for more static environments. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">It is the complexity and dynamic nature of a containerized environment that requires container security to be fully automated. An important step to automating security and embedding it into </span><a href="../../cloud-native-academy/supply-chain-security/secure-software-development-lifecycle-ssdlc/index.html"><span data-contrast="none">all stages of the software development lifecycle (SDLC)</span></a><span data-contrast="auto"> is to implement security controls as part of the continuous delivery lifecycle used to build and release containerized applications.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">Aqua’s solution spans the entire SDLC, securing the build pipeline, images, host machines, container runtimes (such as Docker or containerd), container platforms and orchestrators (such as Kubernetes), and application layers.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<h3 aria-level="2"><span data-contrast="none">Simplifying security with better risk intelligence</span><span data-ccp-props="{&quot;134245418&quot;:true,&quot;134245529&quot;:true,&quot;201341983&quot;:0,&quot;335559738&quot;:40,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></h3>
+<p><span data-contrast="auto">Risk intelligence is a decisive part of container security, making this the most important tactic for many security and DevOps teams dealing with containerized workflows. Images are often open source, so continuously validating each image for changes in health, vulnerabilities, and licensing is essential. Equally as important are the container and orchestrator configurations, which create easy targets if deployed misconfigured to production. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">The Aqua platform is RedHat certified for both vulnerability scanning and OpenShift container security. It is unique in that one scanner can be used to uncover all risk without the disparities of results from different scanners, creating a flood of vulnerability false positives that bog down both development and security. Combined with threat research from Nautilus, teams are armed with deeper risk analysis than what is available through scanning alone. This comprehensive view before deployment is then run through intelligent policies within Aqua that automate the acceptance or denial of a </span><a href="../../cloud-native-academy/container-security/container-images/index.html"><span data-contrast="none">container image</span></a><span data-contrast="auto"> into production. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="none">Aqua governance policies are the secret to scaling and come out of the box ready to tackle </span><a href="../../cloud-native-academy/cloud-compliance/cloud-compliance/index.html"><span data-contrast="none">HIPAA, PCII, and more</span></a><span data-contrast="none">. But as every development process is unique, Aqua policies are too and can be customized according to:</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<ul>
+<li data-leveltext="" data-font="Symbol" data-listid="3" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="1" data-aria-level="1"><span data-contrast="auto">The workload: VM images, container images, serverless functions</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></li>
+<li data-leveltext="" data-font="Symbol" data-listid="3" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="2" data-aria-level="1"><span data-contrast="auto">The risk: Vulnerabilities, embedded secrets, open source license issues, misconfigurations, secrets, malware</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></li>
+<li data-leveltext="" data-font="Symbol" data-listid="3" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="3" data-aria-level="1"><span data-contrast="auto">Role based access: Type of permission provisioned</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></li>
+<li data-leveltext="" data-font="Symbol" data-listid="3" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="4" data-aria-level="1"><span data-contrast="auto">Scanning interval and phase of lifecycle: on commit or at deployment in the Registry or CI/CD pipeline </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></li>
+</ul>
+<h3 aria-level="2"><span data-contrast="none">Preventing container risk before production</span><span data-ccp-props="{&quot;134245418&quot;:true,&quot;134245529&quot;:true,&quot;201341983&quot;:0,&quot;335559738&quot;:40,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></h3>
+<p><span data-contrast="none">Aqua’s comprehensive stance on container security integrates both preventive measures and risk detection of open source risk in containerized environments. </span><a href="https://info.aquasec.com/hubfs/Red Hat - Aqua Security Product Brief.pdf"><span data-contrast="none">Aqua can be deployed natively</span></a><span data-contrast="auto"> on RedHat OpenShift for both LinuxOne and Windows containers. Providing governance over the image before and after deployment that is in line with customizable security controls. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="none">This continuous intelligence of risk before and after deployment enhances security&#8217;s ability to &#8220;find the needle in the needle stack&#8221; and enables a risk-based strategy for prevention, detection, and remediation.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335557856&quot;:16777215,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="none">Tailored for the ephemeral nature of containers, Aqua automates pre-deployment scanning, offering an optimized method to monitor for any file changes. It utilizes a single scanner to identify vulnerabilities in the image and configurations of the container and orchestrator before deployment. This encompasses meticulous scanning of multiple layers within the container, whether in the registry or the CI/CD pipeline, ensuring a proactive security approach well before reaching the production stage.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335557856&quot;:16777215,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="none">Below is a view of how a container on Linux/s390x is assessed for risk and analyzed for risk. The risk findings are then leveraged within Aqua policies for acceptance into production or relayed back to development for action. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335557856&quot;:16777215,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></p>
+<div id="attachment_18880" style="width: 1010px" class="wp-caption aligncenter"><img fetchpriority="high" decoding="async" aria-describedby="caption-attachment-18880" class="wp-image-18880 size-full" src="../../wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.00-PM.jpg" alt="Linux/s390x is assessed for risk and analyzed for risk" width="1000" height="705" srcset="https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.00-PM.jpg 1000w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.00-PM-300x212.jpg 300w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.00-PM-768x541.jpg 768w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.00-PM-140x99.jpg 140w" sizes="(max-width: 1000px) 100vw, 1000px" /><p id="caption-attachment-18880" class="wp-caption-text">Image 1: Linux/s390x is assessed for risk and analyzed for risk</p></div>
+<div id="attachment_18881" style="width: 1010px" class="wp-caption aligncenter"><img decoding="async" aria-describedby="caption-attachment-18881" class="wp-image-18881 size-full" src="../../wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.59-PM.jpg" alt="Findings leveraged within Aqua policies for acceptance into production" width="1000" height="498" srcset="https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.59-PM.jpg 1000w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.59-PM-300x149.jpg 300w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.59-PM-768x382.jpg 768w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.59-PM-140x70.jpg 140w" sizes="(max-width: 1000px) 100vw, 1000px" /><p id="caption-attachment-18881" class="wp-caption-text">Image 2: Findings leveraged within Aqua policies for acceptance into production<span style="font-size: 16px;"> </span></p></div>
+<h3 aria-level="2"><span data-contrast="none">Runtime support in Kubernetes environments </span><span data-ccp-props="{&quot;134245418&quot;:true,&quot;134245529&quot;:true,&quot;201341983&quot;:0,&quot;335559738&quot;:40,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></h3>
+<p><span data-contrast="auto">A key principle of zero-day prevention is the concept of immutability. Immutability means that a container won’t be modified during its life: no updates, no patches, no configuration changes. If a change does happen, it is considered drift. It is reasonable to assume with drift comes the risk of attack. </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">Throughout this blog we have spoken about the challenge around </span><a href="../../cloud-native-academy/container-security/container-security/index.html"><span data-contrast="none">securing container environments</span></a><span data-contrast="auto"> stemming from their complexity and the lack of real-time visibility into what is going on inside containers pre-deployment. But what about after, what happens when the application is running? Some of the most prolific attacks, including </span><a href="../../cloud-native-academy/supply-chain-security/log4j-vulnerability-2023/index.html"><span data-contrast="none">Log4j</span></a><span data-contrast="auto"> vulnerability, </span><a href="../zero-day-rce-vulnerability-spring4shell/index.html"><span data-contrast="none">Spring4Shell</span></a><span data-contrast="auto">, have shown that detecting threats at runtime is critical in thwarting zero-day attacks. This is why Aqua will deliver key runtime capabilities such as drift prevention and </span><a href="../../cloud-native-academy/vulnerability-management/malware-detection/index.html"><span data-contrast="none">malware detection</span></a><span data-contrast="auto">.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<h3 aria-level="2"><span data-contrast="none">How drift prevention works within Aqua</span><span data-ccp-props="{&quot;134245418&quot;:true,&quot;134245529&quot;:true,&quot;201341983&quot;:0,&quot;335559738&quot;:40,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></h3>
+<p><a href="../cloud-native-security-drift-prevention/index.html"><span data-contrast="none">Drift prevention</span></a><span data-contrast="auto"> is used to prevent exposure and attacks at runtime by following security best practices of immutability to ensure containers aren’t modified after deployment in production. It prohibits any changes to the image after it is instantiated into a container and blocks everything that wasn’t part of the original image – without killing a container itself. Thus, protecting workloads against zero-day attacks by detecting and blocking known and unknown malware, zero-day exploits, and internal threats that can’t be caught early in the application life cycle.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">Here is a quick example of how drift prevention works within the Aqua platform. Below is an image of the incident screen, it shows all the runtime findings in the environment, whether behavioral or based off a runtime policy to control drift in the running of the application.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<div id="attachment_14179" style="width: 910px" class="wp-caption aligncenter"><img decoding="async" aria-describedby="caption-attachment-14179" class="wp-image-14179 size-full" src="../../wp-content/uploads/2024/01/Incident-Screen-1.jpg" alt="Incident Screen showing all the runtime findings in the environment " width="900" height="471" srcset="https://www.aquasec.com/wp-content/uploads/2024/01/Incident-Screen-1.jpg 900w, https://www.aquasec.com/wp-content/uploads/2024/01/Incident-Screen-1-300x157.jpg 300w, https://www.aquasec.com/wp-content/uploads/2024/01/Incident-Screen-1-768x402.jpg 768w, https://www.aquasec.com/wp-content/uploads/2024/01/Incident-Screen-1-140x73.jpg 140w" sizes="(max-width: 900px) 100vw, 900px" /><p id="caption-attachment-14179" class="wp-caption-text">Image 3: Incident Screen showing all the runtime findings in the environment</p></div>
+<p><span class="TextRun SCXW163366615 BCX0" lang="EN-US" xml:lang="EN-US" data-contrast="auto"><span class="NormalTextRun SCXW163366615 BCX0">This next image shows the timeline of events leading up to the drift event. The user can see that a privilege change was executed and access to the container gained, triggering the alert and containment. </span></span><span class="EOP SCXW163366615 BCX0" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<div id="attachment_14180" style="width: 910px" class="wp-caption aligncenter"><img loading="lazy" decoding="async" aria-describedby="caption-attachment-14180" class="wp-image-14180 size-full" src="../../wp-content/uploads/2024/01/Timeline-of-events-1.jpg" alt="Timeline of a drift event, showing the dropping a new executable and trying to execute it " width="900" height="588" srcset="https://www.aquasec.com/wp-content/uploads/2024/01/Timeline-of-events-1.jpg 900w, https://www.aquasec.com/wp-content/uploads/2024/01/Timeline-of-events-1-300x196.jpg 300w, https://www.aquasec.com/wp-content/uploads/2024/01/Timeline-of-events-1-768x502.jpg 768w, https://www.aquasec.com/wp-content/uploads/2024/01/Timeline-of-events-1-140x91.jpg 140w" sizes="(max-width: 900px) 100vw, 900px" /><p id="caption-attachment-14180" class="wp-caption-text">Image 4: Timeline of a drift event, showing the dropping a new executable and trying to execute it</p></div>
+<h3 aria-level="2"><span data-contrast="none">Protecting against malware in runtime</span><span data-ccp-props="{&quot;134245418&quot;:true,&quot;134245529&quot;:true,&quot;201341983&quot;:0,&quot;335559738&quot;:40,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></h3>
+<p><span data-contrast="none">Malware is always a prominent threat. Aqua ensures ongoing vigilance with malware scanning of VMs and Kubernetes hosts. This process happens automatically and is defined as part of the Host Assurance Policy. </span><a href="../../cloud-native-academy/vulnerability-management/malware-detection/index.html"><span data-contrast="none">Detected malware</span></a><span data-contrast="none"> results in alerts and the marking of the VM as non-compliant, ensuring immediate attention and action.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335557856&quot;:16777215,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"> </span></p>
+<p><span data-contrast="none">The following screenshot shows that malware is detected and displayed for each VM in the Workloads &gt; VMs page.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335557856&quot;:16777215,&quot;335559739&quot;:0,&quot;335559740&quot;:240}"> </span></p>
+<div id="attachment_18882" style="width: 1010px" class="wp-caption aligncenter"><img loading="lazy" decoding="async" aria-describedby="caption-attachment-18882" class="wp-image-18882 size-full" src="../../wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.33-PM.jpg" alt="Malware is detected and displayed for each VM in the Workloads &gt; VMs page" width="1000" height="198" srcset="https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.33-PM.jpg 1000w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.33-PM-300x59.jpg 300w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.33-PM-768x152.jpg 768w, https://www.aquasec.com/wp-content/uploads/2024/03/Screenshot-2024-03-05-at-8.18.33-PM-140x28.jpg 140w" sizes="(max-width: 1000px) 100vw, 1000px" /><p id="caption-attachment-18882" class="wp-caption-text">Image 5: Malware is detected and displayed for each VM in the Workloads &gt; VMs page</p></div>
+<h3 aria-level="2"><span data-contrast="none">Protecting environments, no matter where they run </span><span data-ccp-props="{&quot;134245418&quot;:true,&quot;134245529&quot;:true,&quot;201341983&quot;:0,&quot;335559738&quot;:40,&quot;335559739&quot;:0,&quot;335559740&quot;:259}"> </span></h3>
+<p><span data-contrast="auto">The Aqua Platform unifies </span><a href="../../cloud-native-academy/cspm/cloud-security/index.html"><span data-contrast="none">cloud security</span></a><span data-contrast="auto"> and vulnerability management across complex environments so that these highly regulated industries can minimize the application attack surface and stop attacks by creating a single source of truth, enabling seamless collaboration across teams, and giving everyone the context to prioritize and fix what’s most important.  </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">Many </span><a href="../../cloud-native-academy/application-security/cybersecurity-in-banking/index.html"><span data-contrast="none">banks</span></a><span data-contrast="auto"> rely on Aqua to secure containerized environments. This dedication not only confirms our commitment to strengthen security across application modernization initiatives, but also confirms the value of our integrated partnership with IBM. It highlights our expertise and experience providing cloud-native security for regulated industries and the technical integration ensures resilience for organizations embracing container technologies.</span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p><span data-contrast="auto">The infrastructure surrounding containers is complex on many levels Aqua’s integrated platform offers full lifecycle container security protection, to reduce risk and prove compliance of containerized applications, harden Kubernetes clusters, mitigate attacks and protect containers across all platforms and formats</span><span data-contrast="none">.   Named as an </span><span data-contrast="none">Outperformer and Leader in innovation by the </span><a href="https://info.aquasec.com/gigaom-container-security-radar"><span data-contrast="none">GigaOm Radar for Container Security</span></a> <span data-contrast="auto">it is this quote from the report that sums up Aqua’s commitment, “</span><span data-contrast="none">The Aqua Platform’s implementation is well done. Most customers will find the product zeroes in on all the right things to lock down the container environment. </span><b><span data-contrast="none">If it is a likely need in the average enterprise’s container security or compliance strategy, Aqua supports it.”</span></b><span data-contrast="none">  </span><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}"> </span></p>
+<p>To visit <a href="../../demo/index.html">www.aquasec.com/demo</a> to learn more.</p>
+<p>&nbsp;</p>
+					
+
+
+					
+					
+
+
+
+				</div><!-- content -->
+
+						
+			</div><!-- main_content_column -->
+
+
+			
+			<div class="trd-ph-embedded match_blog_width" data-id="0c0644c3-87f6-4d19-b472-52adb57842ba"></div>
+
+
+			<div id="post_footer_meta" class="post_footer_meta match_blog_width">
+				<p><strong>Published under:</strong> <a href="../../category/container-security/index.html" rel="category tag">CONTAINER SECURITY</a></p>
+									<p><strong>Tags:</strong>  <a href="../../tag/hybrid-cloud-security/index.html" rel="tag">Hybrid Cloud Security</a>, <a href="../../tag/ibm-cloud/index.html" rel="tag">IBM Cloud</a></p>
+							</div><!-- post_meta -->
+			<div class="spacer"></div>
+			<div class="match_blog_width">
+			
+
+	<div class="author_card with_avatar">
+
+			<div class="author_avatar" style="background-image:url('../../wp-content/uploads/2024/02/Cassandra-Stanek-Profile-126x140.jpg');"></div>
+		
+						<div class="author_name">Cassandra Stanek</div>
+			
+			<div class="author_bio">Cassandra Stanek is the Principal Product Marketing Manager for Software Supply Chain Security at Aqua. She has 9 years of product marketing experience focusing on innovative Cybersecurity and DevOps products in the startup and enterprise space.</div><!-- author_bio -->
+	
+	
+</div><!-- author_card -->
+
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Person",
+"name": "Cassandra Stanek",
+"image": "https:\/\/www.aquasec.com\/wp-content\/uploads\/2024\/02\/Cassandra-Stanek-Profile-126x140.jpg",
+"description": "Cassandra Stanek is the Principal Product Marketing Manager for Software Supply Chain Security at Aqua. She has 9 years of product marketing experience focusing on innovative Cybersecurity and DevOps products in the startup and enterprise space."}</script>
+
+
+
+	<div class="author_card with_avatar">
+
+			<div class="author_avatar" style="background-image:url('../../wp-content/uploads/2023/12/Erinjpg.jpg');"></div>
+		
+						<a href="../../authors/erin-stephan/index.html" class="author_name"> Erin Stephan</a>
+			
+			<div class="author_bio">Erin Stephan is the Director of Product Marketing for Aqua's Cloud Security portfolio. Erin has more than 10 years of product marketing experience in data protection and cybersecurity. She enjoys connecting with people, helping to articulate their challenges, and bringing products and solutions to the market that help solve those challenges. In her free time, you can find her catching a flight to a new city, shopping for new home décor, or taking a spin class.</div><!-- author_bio -->
+	
+			<div class="author_social_links">
+			<div class="social_links_wrap small_social_links">
+									<a href="https://www.linkedin.com/in/erin-stephan" target="_blank" class="social_link linkedin">LinkedIn </a>
+									<a href="#" target="_blank" class="social_link website"></a>
+							</div>
+		</div><!-- author_social_links -->
+		
+</div><!-- author_card -->
+
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Person",
+"name": " Erin Stephan",
+"url": "https:\/\/www.aquasec.com\/authors\/erin-stephan\/",
+"image": "https:\/\/www.aquasec.com\/wp-content\/uploads\/2023\/12\/Erinjpg.jpg",
+"description": "Erin Stephan is the Director of Product Marketing for Aqua's Cloud Security portfolio. Erin has more than 10 years of product marketing experience in data protection and cybersecurity. She enjoys connecting with people, helping to articulate their challenges, and bringing products and solutions to the market that help solve those challenges. In her free time, you can find her catching a flight to a new city, shopping for new home d\u00e9cor, or taking a spin class.",
+"sameAs": ["https:\/\/www.linkedin.com\/in\/erin-stephan",""]
+}</script>
+
+			</div>
+
+						<div class="spacer"></div>
+			<div class="trd-ph-embedded trd_blogpost_readmore" data-id="c1b5dcad-43be-4cfe-ba26-4b44aca4d54f"></div>
+
+		</div><!-- container -->
+	</div><!-- maincontent_wrap -->
+		<!-- content ends -->
+
+	<div class="social_float_wrap">
+		<div class="container">
+			<div class="match_blog_width">
+				<div class="social_float">
+					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/" class="social_float_link facebook" aria-label="Share on Facebook" data-toggle="tooltip" data-placement="top" data-title="Share on Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M13.69,24.903h3.679V15.999h2.454l.325-3.068H17.369l.004-1.536c0-.8.076-1.229,1.224-1.229h1.534V7.097H17.676c-2.949,0-3.986,1.489-3.986,3.992v1.842H11.852V16H13.69Z" /></svg></a>
+					<a target="_blank" href="https://twitter.com/share?url=https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/&amp;text=Elevating%20Security%3A%20Protecting%20Containerized%20Workloads%20on%20Mainframes" class="social_float_link twitter" aria-label="Share on X"  data-toggle="tooltip" data-placement="top" data-title="Share on X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M18.05762,15.23193l5.87842-6.71875h-3.13867l-4.19336,4.79395-3.62549-4.79395h-5.8833l6.57324,8.59619-6.27393,7.1709h3.14014l4.6001-5.25684,4.02051,5.25684h5.74658l-6.84424-9.04834ZM10.94873,10.39209h1.04541l9.02197,11.92725h-.94434l-9.12305-11.92725Z" /></svg></a>
+					<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/&amp;title=Elevating%20Security%3A%20Protecting%20Containerized%20Workloads%20on%20Mainframes" class="social_float_link linkedin" aria-label="Share on LinkedIn"  data-toggle="tooltip" data-placement="top" data-title="Share on Linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M24.299,22.932V16.795c0-3.288-1.755-4.818-4.096-4.818a3.52865,3.52865,0,0,0-3.206,1.768V12.228H13.439c.047,1.005,0,10.704,0,10.704h3.558V16.954a2.43146,2.43146,0,0,1,.117-.867,1.94665,1.94665,0,0,1,1.825-1.301c1.288,0,1.803.981,1.803,2.42v5.727l3.557-.001ZM9.69,10.767a1.8553,1.8553,0,1,0,.023-3.699,1.85409,1.85409,0,1,0-.045,3.698H9.69Zm1.779,12.165V12.228H7.912V22.932Z" /></svg></a>
+				</div><!-- social_float -->
+			</div><!-- match_blog_width -->
+		</div><!-- container -->
+	</div><!-- social_float_wrap -->
+
+
+
+	
+
+
+
+</div><!-- post_pagewrap -->
+</div><!-- page -->
+
+
+<script type="text/javascript">
+var $j_st_social = jQuery.noConflict();
+$j_st_social(document).ready(function() {
+
+	var $window_width = window.innerWidth ? window.innerWidth : $j_st_social(window).width();
+
+	if ($window_width >= 1023) { // Adjust the breakpoint as needed
+
+		//social float
+		var socialFloatController = new ScrollMagic.Controller();
+		var postPageWrap = $j_st_social('.post_pagewrap');
+		var socialFloatWrap = $j_st_social('.social_float_wrap');
+		var sceneDuration = postPageWrap.outerHeight() - socialFloatWrap.outerHeight() - 100; 
+		var socialfloat_scene = new ScrollMagic.Scene({
+			triggerElement: postPageWrap[0],
+			duration: sceneDuration,
+			triggerHook: 0
+		})
+		.setPin(socialFloatWrap[0])
+		.addTo(socialFloatController);
+
+		socialfloat_scene.on('enter', function() {
+			socialFloatWrap.addClass('is_pinned');
+		});
+
+		socialfloat_scene.on('leave', function() {
+			socialFloatWrap.removeClass('is_pinned');
+		});
+
+		
+		$j_st_social('.social_float a').click(function() {
+			window.open($j_st_social(this).attr('href'),'title', 'toolbar=no,scrollbars=no,resizable=yes,width=600,height=580');
+			return false;
+		});
+
+
+		$j_st_social('[data-toggle="tooltip"]').each(function() {
+			tooltip_title = $j_st_social(this).data('title');
+			$j_st_social(this).tooltip({title: tooltip_title});
+		});
+		
+	} //if width
+
+
+});
+
+</script>
+
+
+
+
+<!-- script_box -->
+
+			
+
+	
+	
+<!-- footer_cta starts -->
+	<div class="footer_cta_wrap is_glass animatable">
+		<div class="se*ction">
+			<div class="container">
+
+				<div class="columns is-centered is-vcen*tered">
+
+					<div class="column is-12 footer_cta">
+
+													<div class="subtitle footer_cta_pretitle fadeInUp animationDelay_1">Need to secure enterprise workloads? </div>
+						
+						<div class="title footer_cta_title fadeInUp animationDelay_2">Aqua Cloud Native Application Protection Platform (CNAPP)</div>
+
+													<div class="subtitle footer_cta_subtitle fadeInUp animationDelay_3">Go cloud native with the experts!</div>
+						
+						<a href="../../demo/index.html" class="button is-primary footer_cta_button fadeInUp animationDelay_4 dl_event_click"  data-dl-event="demo_footer" data-dl-category="request demo" data-dl-action="click button" data-dl-label="footer cta">Get Demo</a>					</div><!-- footer_cta -->
+
+				</div><!-- columns -->
+
+
+			</div><!-- container -->
+
+		</div><!-- section -->
+	</div><!-- footer_cta_wrap -->	
+<!-- footer_cta ends -->
+
+
+<!-- footer starts -->
+<section class="footer_wrap animatable">
+	<div class="section">
+
+					<div class="columns is-multiline">
+
+				<div class="column is-12 fadeInUp">
+					<a class="footer_logo" href="../../index.html" title="Aqua Security">Aqua Security</a>
+				</div>
+
+
+				<div class="column is-4-widescreen is-5-desktop is-10-tablet is-12-mobile footer_1 fadeInUp animationDelay_1">
+					Aqua Security is the pioneer in securing containerized cloud native applications from development to production. Aqua's full lifecycle solution prevents attacks by enforcing pre-deployment hygiene and mitigates attacks in real time in production, reducing mean time to repair and overall business risk. The Aqua Platform, a Cloud Native Application Protection Platform (CNAPP), integrates security from Code to Cloud, combining the power of agent and agentless technology into a single solution. With enterprise scale that doesn’t slow development pipelines, Aqua secures your future in the cloud. Founded in 2015, Aqua is headquartered in Boston, MA and Ramat Gan, IL protecting over 500 of the world’s largest enterprises. 
+
+					<div class="g2_link_wrap">
+						<a href="https://www.g2.com/products/aqua-security/reviews?utm_source=review-widget" target="_blank" title="Read reviews of Aqua Security on G2" rel="noreferrer"><img alt="Read Aqua Security reviews on G2" src="../../wp-content/themes/aqua3/images/g2_gray_8.png" width="300" height="151" loading="lazy" /></a>
+											</div>
+
+															<div class="social_links_wrap">
+						<a href="https://www.instagram.com/aquaseclife/" class="social_link instagram" target="_blank" title="instagram" rel="noreferrer"></a>
+						<a href="https://www.linkedin.com/company/aquasecteam" class="social_link linkedin" target="_blank" title="linkedin" rel="noreferrer"></a>
+						<a href="https://www.youtube.com/c/AquasecTeam" class="social_link youtube" target="_blank" title="youtube" rel="noreferrer"></a>
+						<a href="https://x.com/AquaSecurityHQ" class="social_link twitter" target="_blank" title="twitter" rel="noreferrer"></a>
+						<a href="https://github.com/aquasecurity" class="social_link git" target="_blank" title="git" rel="noreferrer"></a>
+						<a href="https://www.facebook.com/AquaSecTeam" class="social_link facebook" target="_blank" title="facebook" rel="noreferrer"></a>
+											</div>
+
+				</div><!-- column footer_1 -->
+			
+								<div class="column is-7-widescreen is-offset-1-widescreen is-7-desktop is-12-tablet is-12-mobile">
+
+					<div class="columns is-multiline">
+
+											<div class="column is-4-widescreen is-6-desktop is-6-tablet is-12-mobile footer_2 fadeInUp animationDelay_2">
+																<div class="footer_link_group">
+										<p>Use Cases</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../use-cases/devops-security/index.html" >Automate DevSecOps</a></li><li class="menu-item"><a href="../../use-cases/cloud-workload-security/index.html" >Modernize Security</a></li><li class="menu-item"><a href="../../use-cases/cndr-cloud-native-detection-and-reponse/index.html" >CNDR Cloud Native Detection & Response</a></li><li class="menu-item"><a href="../../use-cases/container-auditing-compliance/index.html" >Compliance and Auditing</a></li><li class="menu-item"><a href="../../products/serverless-container-functions/index.html" >Serverless Containers & Functions</a></li><li class="menu-item"><a href="../../use-cases/multi-cloud-and-hybrid-cloud/index.html" >Hybrid and Multi Cloud</a></li><li class="menu-item"><a href="../../solutions/federal/index.html" >Federal Cloud Native Security</a></li>										</ul><!-- menu -->
+									</div>
+																		<div class="footer_link_group">
+										<p>Environments</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../products/kubernetes-security/index.html" >Kubernetes Security</a></li><li class="menu-item"><a href="../../solutions/red-hat-openshift-container-security/index.html" >OpenShift Security</a></li><li class="menu-item"><a href="../../solutions/aws-container-security/index.html" >AWS Security</a></li><li class="menu-item"><a href="../../solutions/azure-container-security/index.html" >Azure Cloud Security</a></li><li class="menu-item"><a href="../../solutions/google-cloud-kubernetes-security/index.html" >Google Cloud Security</a></li><li class="menu-item"><a href="../../solutions/vmware-tanzu/index.html" >Security for VMware Tanzu</a></li><li class="menu-item"><a href="../../solutions/docker-container-security/index.html" >Docker Security</a></li>										</ul><!-- menu -->
+									</div>
+																		<div class="footer_link_group">
+										<p>Partners</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../partners/index.html#technology-alliances" >Technology Partners</a></li><li class="menu-item"><a href="../../partners/index.html#partner-with-us" >Partner With Us</a></li>										</ul><!-- menu -->
+									</div>
+									
+							
+
+
+						</div><!-- column footer_2 -->
+
+											<div class="column is-4-widescreen is-6-desktop is-6-tablet is-12-mobile footer_3 fadeInUp animationDelay_3">
+																<div class="footer_link_group">
+										<p>Resources</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../research/index.html" >Aqua Security Research</a></li><li class="menu-item"><a href="../../cloud-native-academy/index.html" >The Cloud Native Wiki</a></li><li class="menu-item"><a href="../../cloud-native-academy/kubernetes-101/kubernetes-complete-guide/index.html" >Kubernetes 101</a></li><li class="menu-item"><a href="../../cloud-native-academy/cspm/aws-cloud-security/index.html" >AWS Cloud Security</a></li><li class="menu-item"><a href="../../cloud-native-academy/docker-container/index.html" >Docker 101</a></li><li class="menu-item"><a href="../../resources/virtual-container-security-channel/index.html" >The Cloud Native Channel</a></li><li class="menu-item"><a href="https://info.aquasec.com/kubernetes-security" >O’Reilly Book: Kubernetes Security</a></li><li class="menu-item"><a href="../../cloud-native-academy/cnapp/what-is-cnapp/index.html" >CNAPP 101</a></li><li class="menu-item"><a href="../../cloud-native-academy/cspm/cloud-security-posture-management-cspm/index.html" >CSPM 101</a></li>										</ul><!-- menu -->
+									</div>
+																		<div class="footer_link_group">
+										<p>About Us</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../about-us/index.html" >About Aqua</a></li><li class="menu-item"><a href="../../about-us/news/index.html" >Newsroom</a></li><li class="menu-item"><a href="../../about-us/careers/index.html" >Careers</a></li><li class="menu-item"><a href="../../brand/index.html" >Brand Guidelines</a></li><li class="menu-item"><a href="../../trust/security/index.html" >Trust & Security</a></li><li class="menu-item"><a href="../../aquarantee-cloud-native-protection-warranty/index.html" >Aqua Cloud Native Protection FAQ</a></li><li class="menu-item"><a href="../../services/index.html" >Professional services</a></li>										</ul><!-- menu -->
+									</div>
+																		<div class="footer_link_group">
+										<p>Get in Touch</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../index.html" >Aqua Blog</a></li><li class="menu-item"><a href="../../about-us/contact-us/index.html" >Contact Us</a></li><li class="menu-item"><a href="https://success.aquasec.com/" >Success Portal</a></li>										</ul><!-- menu -->
+									</div>
+									
+							
+
+
+						</div><!-- column footer_3 -->
+
+											<div class="column is-4-widescreen is-6-desktop is-6-tablet is-12-mobile footer_4 fadeInUp animationDelay_4">
+																<div class="footer_link_group">
+										<p>Products</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../aqua-cloud-native-security-platform/index.html" >Cloud Native Security Platform</a></li><li class="menu-item"><a href="../../products/cspm/index.html" >CSPM Cloud Security</a></li><li class="menu-item"><a href="../../products/container-security/index.html" >Container Security</a></li><li class="menu-item"><a href="../../products/kubernetes-security/index.html" >Kubernetes Security</a></li><li class="menu-item"><a href="../../products/serverless-container-functions/index.html" >Serverless Security</a></li><li class="menu-item"><a href="../../products/cloud-vm-security/index.html" >Cloud VM Security</a></li><li class="menu-item"><a href="../../products/container-analysis/index.html" >Dynamic Threat Analysis (DTA)</a></li><li class="menu-item"><a href="../../products/container-vulnerability-scanning/index.html" >Container Vulnerability Scanning</a></li><li class="menu-item"><a href="../../products/open-source-projects/index.html" >Open Source Container Security</a></li><li class="menu-item"><a href="../../integrations/index.html" >Platform Integrations</a></li>										</ul><!-- menu -->
+									</div>
+									
+															<a href="../../demo/index.html" class="button is-outlined neonbluearrowbutton is-spaced fadeInUp animationDelay_2 dl_event_click" target="_blank" data-dl-event="demo_footer" data-dl-category="demo" data-dl-action="click button" data-dl-label="footer">Get Started</a>
+								
+
+
+						</div><!-- column footer_4 -->
+
+					
+					</div><!-- columns -->
+				</div><!-- column is-7 -->
+
+			</div><!-- columns -->
+
+
+		
+		<div class="footer_copyright_wrap fadeInUp animationDelay_6">
+					
+			<div class="columns is-v*centered rev*erse-columns">
+				
+				<div class="column is-12">
+						<div class="footer_copyright">
+							Copyright &copy; 2024 Aqua Security Software Ltd. &nbsp; <a href="../../privacy/index.html">Privacy Policy</a> | <a href="../../terms-of-use/index.html">Terms of Use</a> | 
+							
+							<a class="cky-banner-element" title="Cookie Settings">Cookie Settings</a> | 
+
+							&nbsp;<div class="dropdown accessibility_dropdown">
+								<div class="dropdown-trigger">
+									<a class="topbar_link accessibility" title="Open accessibility options">Accessibility Tools</a>
+								</div>
+								<div class="dropdown-menu accessibility_menu">
+									<div class="dropdown-content">
+										<a class="dropdown-item accessibility_text_link is-active" data-mode="text_normal" title="Normal text size">Normal text size</a>
+										<a class="dropdown-item accessibility_text_link" data-mode="text_medium" title="Medium text size">Medium text size</a>
+										<a class="dropdown-item accessibility_text_link" data-mode="text_large" title="Large text size">Large text size</a>
+										<hr class="dropdown-divider">
+										<a class="dropdown-item accessibility_display_link is-active" data-mode="display_normal" title="Normal display">Normal display</a>
+										<a class="dropdown-item accessibility_display_link" data-mode="display_bw" title="Black & White display">Black & White display</a>
+										<a class="dropdown-item accessibility_display_link" data-mode="display_dark" title="High contrast display">High contrast display</a>
+										<hr class="dropdown-divider">
+										<a class="dropdown-item accessibility_toggle_link" data-mode="stop_animations" title="Stop transitions and animations">Stop transitions and animations</a>
+										<a class="dropdown-item accessibility_toggle_link" data-mode="show_underlines" title="Underline Links">Underline Links</a>
+									</div><!-- dropdown-content" -->
+								</div>
+							</div><!-- dropdown hover -->
+
+
+						</div>
+				</div>
+
+			</div><!-- columns -->
+
+		</div><!-- footer_copyright_wrap -->
+	
+		
+	</div><!-- section -->
+</section>
+
+<!-- footer ends -->
+
+<!-- schema starts -->
+<!-- schema ends -->
+
+<!-- datalayer starts -->
+<script type="text/javascript">
+var $jdl1 = jQuery.noConflict();
+$jdl1(document).ready(function(){
+
+	if($jdl1(".dl_promo_click").length) {
+		$jdl1(".dl_promo_click").click(function() {
+
+			if(window.dataLayer) {
+
+				dl_id = $jdl1(this).data('dl-id');
+				//console.log("dl_id: " + dl_id);
+
+				dl_name = $jdl1(this).data('dl-name');
+				//console.log("dl_name: " + dl_name);
+
+				dl_creative = $jdl1(this).data('dl-creative');
+				//console.log("dl_creative: " + dl_creative);
+
+				dl_position = $jdl1(this).data('dl-position');
+				//console.log("dl_position: " + dl_position);
+
+				dataLayer.push({
+					'event': 'promotionClick',
+					ecommerce: {
+						promoClick: {
+							promotions: [{
+							'id': dl_id,
+							'name': dl_name, 
+							'creative': dl_creative,
+							'position': dl_position
+							}]
+						}
+					}
+				});
+
+			}; //if datalayer
+
+			
+		}); //dl_promo_click click
+	}; //dl_promo_click length
+
+
+
+
+	if($jdl1(".dl_event_click").length) {
+		$jdl1(".dl_event_click").click(function() {
+
+			if(window.dataLayer) {
+
+				dl_event = $jdl1(this).data('dl-event');
+				//console.log("dl_event: " + dl_event);
+
+				dl_category = $jdl1(this).data('dl-category');
+				//console.log("dl_category: " + dl_category);
+
+				dl_action = $jdl1(this).data('dl-action');
+				//console.log("dl_action: " + dl_action);
+
+				dl_label = $jdl1(this).data('dl-label');
+				//console.log("dl_label: " + dl_label);
+
+				//console.log("------");
+				//return false;
+				dataLayer.push({
+					'event': dl_event,
+					'category': dl_category,
+					'action': dl_action,
+					'label': dl_label
+				});
+
+			}; //if datalayer
+
+					
+		}); //dl_event_click click
+	}; //dl_event_click length
+
+}); //jdl1
+</script><!-- datalayer ends -->
+
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="../../wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script></body>
+
+<!-- Mirrored from www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Aug 2024 01:55:47 GMT -->
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->

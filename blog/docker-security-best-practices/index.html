@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en-US" class="is-fullheight">
+
+<!-- Mirrored from www.aquasec.com/blog/docker-security-best-practices/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Aug 2024 02:01:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fast.wistia.com/" crossorigin>
+<link rel="shortcut icon" href="../../wp-content/themes/aqua3/favicon.ico" />
+<link rel="icon" type="image/png" href="../../wp-content/themes/aqua3/favicon_192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../wp-content/themes/aqua3/apple-touch-icon-180x180.png" />
+
+	<!-- Start cookieyes banner --> <script data-minify="1" id="cookieyes" type="text/javascript" src="../../wp-content/cache/min/1/client_data/5bcdbce45953e61e74b8da56/scriptff17.js?ver=1724591342"></script> <!-- End cookieyes banner -->
+	
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v23.3 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Top 22 Docker Security Best Practices: Ultimate Guide</title><link rel="preload" data-rocket-preload as="image" href="https://www.aquasec.com/wp-content/uploads/2021/07/2021-Docker-Security-Best-Practices-UPDATE-Blog-Image-1.jpg" fetchpriority="high">
+	<meta name="description" content="Get brief, practical guidance to securing your Docker containers - Docker and host configuration, securing images, and monitoring containers." />
+	<link rel="canonical" href="index.html" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Top 22 Docker Security Best Practices: Ultimate Guide" />
+	<meta property="og:description" content="Get brief, practical guidance to securing your Docker containers - Docker and host configuration, securing images, and monitoring containers." />
+	<meta property="og:url" content="https://www.aquasec.com/blog/docker-security-best-practices/" />
+	<meta property="og:site_name" content="Aqua" />
+	<meta property="article:publisher" content="https://www.facebook.com/AquaSecTeam" />
+	<meta property="article:published_time" content="2021-07-01T09:30:00+00:00" />
+	<meta property="article:modified_time" content="2024-08-11T08:46:32+00:00" />
+	<meta property="og:image" content="https://www.aquasec.com/wp-content/uploads/2021/07/2021-Docker-Security-Best-Practices-UPDATE-Blog-Image.jpg" />
+	<meta property="og:image:width" content="945" />
+	<meta property="og:image:height" content="458" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:creator" content="@AquaSecTeam" />
+	<meta name="twitter:site" content="@AquaSecTeam" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Tal Tabakman" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="23 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://www.aquasec.com/blog/docker-security-best-practices/#article","isPartOf":{"@id":"https://www.aquasec.com/blog/docker-security-best-practices/"},"author":{"name":"Tal Tabakman","@id":"https://www.aquasec.com/#/schema/person/ce549729ac7d1250b0bc0c6928baa4a5"},"headline":"Top 22 Docker Security Best Practices: Ultimate Guide","datePublished":"2021-07-01T09:30:00+00:00","dateModified":"2024-08-11T08:46:32+00:00","mainEntityOfPage":{"@id":"https://www.aquasec.com/blog/docker-security-best-practices/"},"wordCount":4593,"publisher":{"@id":"https://www.aquasec.com/#organization"},"image":{"@id":"https://www.aquasec.com/blog/docker-security-best-practices/#primaryimage"},"thumbnailUrl":"https://www.aquasec.com/wp-content/uploads/2021/07/2021-Docker-Security-Best-Practices-UPDATE-Blog-Image.jpg","keywords":["Container Security","Docker Security","Runtime Security"],"articleSection":["CONTAINER SECURITY"],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://www.aquasec.com/blog/docker-security-best-practices/","url":"https://www.aquasec.com/blog/docker-security-best-practices/","name":"Top 22 Docker Security Best Practices: Ultimate Guide","isPartOf":{"@id":"https://www.aquasec.com/#website"},"primaryImageOfPage":{"@id":"https://www.aquasec.com/blog/docker-security-best-practices/#primaryimage"},"image":{"@id":"https://www.aquasec.com/blog/docker-security-best-practices/#primaryimage"},"thumbnailUrl":"https://www.aquasec.com/wp-content/uploads/2021/07/2021-Docker-Security-Best-Practices-UPDATE-Blog-Image.jpg","datePublished":"2021-07-01T09:30:00+00:00","dateModified":"2024-08-11T08:46:32+00:00","description":"Get brief, practical guidance to securing your Docker containers - Docker and host configuration, securing images, and monitoring containers.","breadcrumb":{"@id":"https://www.aquasec.com/blog/docker-security-best-practices/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.aquasec.com/blog/docker-security-best-practices/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.aquasec.com/blog/docker-security-best-practices/#primaryimage","url":"https://www.aquasec.com/wp-content/uploads/2021/07/2021-Docker-Security-Best-Practices-UPDATE-Blog-Image.jpg","contentUrl":"https://www.aquasec.com/wp-content/uploads/2021/07/2021-Docker-Security-Best-Practices-UPDATE-Blog-Image.jpg","width":945,"height":458,"caption":"Top Docker Security Best Practices: Ultimate Guide"},{"@type":"BreadcrumbList","@id":"https://www.aquasec.com/blog/docker-security-best-practices/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aquasec.com/"},{"@type":"ListItem","position":2,"name":"Top 22 Docker Security Best Practices: Ultimate Guide"}]},{"@type":"WebSite","@id":"https://www.aquasec.com/#website","url":"https://www.aquasec.com/","name":"Aqua","description":"Cloud Native Security, Container Security &amp; Serverless Security","publisher":{"@id":"https://www.aquasec.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.aquasec.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.aquasec.com/#organization","name":"Aqua Security","url":"https://www.aquasec.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.aquasec.com/#/schema/logo/image/","url":"https://www.aquasec.com/wp-content/uploads/2016/05/aqua_logo_fullcolor.png","contentUrl":"https://www.aquasec.com/wp-content/uploads/2016/05/aqua_logo_fullcolor.png","width":491,"height":177,"caption":"Aqua Security"},"image":{"@id":"https://www.aquasec.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/AquaSecTeam","https://x.com/AquaSecTeam","https://www.instagram.com/aquaseclife/","https://www.linkedin.com/company/aquasecteam/","https://github.com/aquasecurity"]},{"@type":"Person","@id":"https://www.aquasec.com/#/schema/person/ce549729ac7d1250b0bc0c6928baa4a5","name":"Tal Tabakman","url":"https://www.aquasec.com/author/tal/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='main-style-css' href='../../wp-content/themes/aqua3/css/aqua3.mind4e9.css?ver=1.0.657' type='text/css' media='all' />
+<script type="text/javascript" data-cookieconsent="ignore" src="../../wp-content/themes/aqua3/js/aqua3.mind4e9.js?ver=1.0.657" id="aqua3_js-js"></script>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><meta name="msvalidate.01" content="EB7D71A4041DC995BE2F2C787A9183FD" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5N9T3H');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body class="post-template-default single single-post postid-15220 single-format-standard">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9T3H" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+				
+<div id="page-15220" class="post-page post-15220 post type-post status-publish format-standard has-post-thumbnail hentry category-container-security tag-container-security tag-docker-security tag-runtime-security">
+
+<!-- hero starts -->
+
+<div class="hero_wrap with_borderline">
+	<div class="hero header_wrap no_header_image">
+		<div class="hero-head">
+						<!-- header starts -->
+	<div class="v2_header_navbar_wrap">
+		<nav class="navbar is-fixed-top">
+
+			<div class="header_topbar_wrap">
+				<div class="container">
+					<div class="header_topbar">
+						<div class="columns is-multiline is-gapless">
+														<div class="column is-12-desktop is-12-tablet topbar_right">
+								<div class="topbar_links">
+																			<a class="topbar_link is_featured is-hidden-mobile dl_event_click" href="../bucket-monopoly-breaching-aws-accounts-through-shadow-resources/index.html" data-dl-event="none" data-dl-category="none" data-dl-action="topbar featured" data-dl-label="Bucket Monopoly: Breaching AWS Accounts Through Shadow Resources">Bucket Monopoly: Breaching AWS Accounts Through Shadow Resources</a>
+																																							<a href="https://cloud.aquasec.com/signin" target="_blank" class="topbar_link">Sign in</a>
+																					<a href="../../about-us/contact-us/index.html"  class="topbar_link">Contact</a>
+																					<a href="https://support.aquasec.com/support/home" target="_blank" class="topbar_link">Support</a>
+																					<a href="../../about-us/careers/index.html"  class="topbar_link">We're hiring!</a>
+											
+																	</div><!-- topbar_links -->
+							</div><!-- is-5 -->
+						</div><!-- columns -->
+					</div><!-- header_topbar-->
+				</div><!-- container -->
+			</div><!-- header_topbar_wrap -->
+
+
+			<div class="container is-small">
+				<div class="navbar-brand">
+										<a class="navbar-item logo dl_event_click" href="../../index.html" title="Aqua Security" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Aqua Security Logo">Aqua Security</a>
+					<div role="button" tabindex="0" class="navbar-burger burger" title="Menu"><span></span><span></span><span></span></div>
+				</div>
+
+				<div class="navigation_shadow main_navigation_shadow"></div>
+				<div id="main-navigation-navbar" class="navbar-menu">
+
+					<div class="navbar-start">
+
+						
+						
+
+						<div class="navbar-item toplevel_item navbar-item-platform">
+														<a class="navbar-link is-arrowless dl_event_click" data-toggle="dropdown" href="../../aqua-cloud-native-security-platform/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Platform">Platform</a>
+													</div><!-- ends - platform -->
+
+						<div class="navbar-item toplevel_item navbar-item-solutions">
+														<a class="navbar-link is-arrowless dl_event_click" data-toggle="dropdown" href="../../solutions/aws-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Solutions">Solutions</a>
+													</div><!-- ends - solutions -->
+
+
+						
+						<div class="navbar-item toplevel_item navbar-item-resources">
+														<a class="navbar-link is-arrowless dl_event_click" data-toggle="dropdown" href="../../resources/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Resources">Resources</a>
+													</div><!-- ends - resources -->
+ 
+
+						<div class="navbar-item toplevel_item navbar-item-company">
+														<a class="navbar-link is-arrowless dl_event_click" data-toggle="dropdown" href="../../about-us/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="main" data-dl-label="Company">Company</a>
+													</div><!-- ends - company -->
+
+
+						
+
+							
+							<div class="breaklevel_item with_arrow break-navbar-item-platform">Platform</div>
+							<div id="navbar-dropdown-platform" class="navbar-dropdown navbar_dropdown_wrap nav_platform_wrap">
+								<div class="container nav_container">
+	<div class="columns is-gapl*ess is-marginless is-multiline">
+		<div class="column is-3-widescreen is-3-desktop is-12-tablet white_bg_left_column">
+
+			<div class="platform_leftctas_wrap fadeInUp">
+
+							<a class="platform_main_left_cta" href="../../aqua-cloud-native-security-platform/index.html" >
+					<div class="cta_pretitle">Aqua Platform</div>
+					<div class="cta_title">Unified Cloud Security</div>
+					<div class="cta_subtitle">Gain total lifecycle visibility, reduce risks and stop attacks with the most comprehensive, fully integrated Cloud Native Application Protection Platform (CNAPP)</div>
+					<div class="button arrowlinkbutton is-royalblue cta_link">Platform overview</div>
+				</a><!-- platform_main_left_cta -->
+			
+
+			</div><!-- platform_leftctas_wrap -->
+
+
+							<div class="platform_left_cta_links fadeInUp animationDelay_1">
+					<ul>
+											<li><a class="button arrowlinkbutton is-royalblue link_item dl_event_click" href="../../integrations/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_left_cta_links" data-dl-label="">All platform Integrations</a></li>
+											<li><a class="button arrowlinkbutton is-royalblue link_item dl_event_click" href="../../demo/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_left_cta_links" data-dl-label="">Aqua CNAPP in action</a></li>
+										</ul>
+				</div><!-- platform_leftctas_links -->
+			
+
+						<div class="opensource_left_cta is-hidden-mobile fadeInUp animationDelay_2">
+					
+									<div class="opensource_links_wrap">
+
+														<div class="navbar_opensource_links_title"><a class="dl_event_click" href="../../products/open-source-projects/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_opensource" data-dl-label="Aqua Open Source"><div class="button arrowlinkbutton is-royalblue">Aqua Open Source</div><div class="small_link_subtitle">Driving security innovation in the cloud native community</div></a></div>
+							
+							<ul class="columns is-multiline opensource_links">
+															<li class="navbar-item menu_item_with_icon icon_trivy"><a class="dl_event_click" href="https://trivy.dev/" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_opensource" data-dl-label="Trivy">Trivy</a></li>
+															<li class="navbar-item menu_item_with_icon icon_tracee"><a class="dl_event_click" href="../../products/tracee/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform_opensource" data-dl-label="Tracee">Tracee</a></li>
+													</ul>
+					</div>
+							</div><!-- opensource_left_cta -->
+			
+
+		</div><!-- is-3 -->
+
+		<div class="column is-7-widescreen is-6-desktop is-12-tablet">
+
+			<div class="columns is-multiline is-gap*less">
+				<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+					
+					<div class="v2_generic_links_wrap platform_links_wrap platform_shiftleft_links_wrap fadeInUp animationDelay_1">
+
+												<div class="section nav_col">
+
+							
+																			<div class="v2_generic_links_title platform_links_title">Dev Security</div>
+									
+							
+
+															<ul class="v2_generic_links platform_links">
+																					<li><a class="dl_event_click" href="../../products/software-supply-chain-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftleft" data-dl-label="Software Supply Chain Security">Software Supply Chain Security<div class="small_link_subtitle">Protect your code, tools, and processes</div></a></li>
+																							<li><a class="dl_event_click" href="../../products/container-vulnerability-scanning/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftleft" data-dl-label="Vulnerability Management">Vulnerability Management<div class="small_link_subtitle">Reduce vulnerability noise and fix issues fast</div></a></li>
+																							<li><a class="dl_event_click" href="../../products/container-analysis/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftleft" data-dl-label="Advanced Malware Protection">Advanced Malware Protection<div class="small_link_subtitle">Stop stealthy malware from dev to cloud</div></a></li>
+																				</ul>
+													</div>
+						
+					</div><!-- platform_shiftleft_links_wrap -->
+
+				</div><!-- is-6 shiftleft -->
+				<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+
+				<div class="v2_generic_links_wrap platform_links_wrap platform_shiftright_links_wrap fadeInUp animationDelay_2">
+
+												<div class="section nav_col">
+
+
+							
+																			<div class="v2_generic_links_title platform_links_title">Cloud Security</div>
+									
+							
+
+																<ul class="v2_generic_links platform_links">
+
+																							<li><a class="dl_event_click" href="../../products/cwpp-cloud-workload-protection/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftright" data-dl-label="Cloud Workload Protection (CWPP)">Cloud Workload Protection (CWPP)<div class="small_link_subtitle">Runtime protection for every cloud workload</div></a></li>
+																									<li><a class="dl_event_click" href="../../products/cspm/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftright" data-dl-label="Cloud Security Posture Management">Cloud Security Posture Management<div class="small_link_subtitle">Extend traditional CSPM with workload visibility</div></a></li>
+																									<li><a class="dl_event_click" href="../../products/kubernetes-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform shiftright" data-dl-label="Kubernetes Security Posture Management">Kubernetes Security Posture Management<div class="small_link_subtitle">Holistic Kubernetes Security for the Enterprise</div></a></li>
+																					</ul>
+													</div>
+						
+					</div><!-- platform_shiftright_links_wrap -->
+
+				</div><!-- is-6 shiftright -->
+
+
+
+									<div class="column is-12-widescreen is-12-desktop is-12-tablet">
+						<div class="platform_news_wrap is-hidden-mobile fadeInUp animationDelay_3">
+
+															<div class="platform_news_title">What's New?</div>
+							
+							<ul class="platform_news">
+
+																			<li><a class="dl_event_click" href="../securing-genai-safeguarding-llm-powered-applications-with-aqua/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform news" data-dl-label="Securing GenAI: Safeguarding LLM-Powered Applications">Securing GenAI: Safeguarding LLM-Powered Applications</a></li>
+																					<li><a class="dl_event_click" href="../discover-cloud-security-issues-faster-with-event-based-scanning/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform news" data-dl-label="Discover Cloud Security Issues Faster with Event-based Scanning">Discover Cloud Security Issues Faster with Event-based Scanning</a></li>
+																					<li><a class="dl_event_click" href="https://www.aquasec.com/blog/elevating-security-protecting-containerized-workloads-on-mainframes" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform news" data-dl-label="Elevating Security: Protecting Containerized Workloads on Mainframes">Elevating Security: Protecting Containerized Workloads on Mainframes</a></li>
+																					<li><a class="dl_event_click" href="../aws-kubernetes-security-and-compliance/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="platform news" data-dl-label="Elevating AWS Kubernetes Security and Compliance">Elevating AWS Kubernetes Security and Compliance</a></li>
+																	</ul>
+
+						</div><!-- platform_news_wrap -->
+					</div><!-- is-12 -->
+				
+
+
+			</div><!-- columns -->
+
+
+
+			
+
+
+		</div><!-- is-6 -->
+
+
+
+		<div class="column is-2-widescreen is-3-desktop is-hidden-mobile nav_col_wrap nav_cta_col white_bg_right_column v2_resource_card_column">
+			<div class="section nav_col v2_resource_card_wrap fadeInUp animationDelay_3">
+
+					<a href="https://info.aquasec.com/gartner_cnapp" target="_blank" class="card resource_link_card resource_item dl_promo_click" data-dl-id="15220" data-dl-name="The new Gartner® Market Guide for Cloud-Native Application Protection Platforms (CNAPP)" data-dl-creative="Research and Reports" data-dl-position="main menu platform cta">
+
+		<div class="card-image resource_image_wrap"><img class="resource_image" src="../../wp-content/uploads/2024/04/Gartner-CNAPP-2024-thumb-2.jpg" alt="" loading="lazy" /></div>
+
+		<div class="card-content">
+
+			<div class="resource_type">Research and Reports</div>
+			<div class="resource_title">The new Gartner® Market Guide for Cloud-Native Application Protection Platforms (CNAPP)</div>
+			
+			
+			
+		</div><!-- card-content -->
+
+		<div class="card-footer">
+			<div class="resource_arrowlink">Get the expert guide by Gartner</div>
+					</div>
+
+	</a><!-- resource-item -->
+
+
+
+			</div><!-- nav_col -->
+		</div><!-- column -->
+
+	</div><!-- columns -->
+</div><!-- nav_container -->								<div class="navigation_shadow dropdown_navigation_shadow"></div>
+							</div><!-- navbar-dropdown -->
+
+							<div class="breaklevel_item with_arrow break-navbar-item-solutions">Solutions</div>
+							<div id="navbar-dropdown-solutions" class="navbar-dropdown navbar_dropdown_wrap nav_solutions_wrap">
+								<div class="container nav_container">
+	<div class="columns is-gapl*ess is-marginless is-multiline row-eq-height">
+		
+		<div class="column is-10-widescreen is-6-desktop is-12-tablet">
+
+			
+			<div class="columns is-multiline is-gap*less row-eq-height height-100">
+
+
+			
+				<div class="column is-4-widescreen is-5-desktop is-12-tablet white_bg_left_column">
+
+					<div class="v2_generic_links_wrap solutions_links_wrap v2_usecases_links_wrap fadeInUp">
+
+												<div class="section nav_col">
+
+
+							
+																			<div class="v2_generic_links_title solutions_links_title">Use Cases</div>
+									
+															
+							
+																<ul class="v2_generic_links solutions_links">
+
+																							<li><a class="dl_event_click" href="https://www.aquasec.com/products/container-security/ "  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Container Security">Container Security<div class="small_link_subtitle">Modern container security for cloud native Apps</div></a></li>
+																									<li><a class="dl_event_click" href="../../use-cases/cndr-cloud-native-detection-and-reponse/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Detection and Response">Detection and Response<div class="small_link_subtitle">Cloud native detection & Response (CNDR)</div></a></li>
+																									<li><a class="dl_event_click" href="../../use-cases/multi-cloud-and-hybrid-cloud/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Hybrid-Cloud & Multi-Cloud">Hybrid-Cloud & Multi-Cloud<div class="small_link_subtitle">security for hybrid and multi-cloud deployments</div></a></li>
+																									<li><a class="dl_event_click" href="../../use-cases/container-auditing-compliance/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Prove Compliance">Prove Compliance<div class="small_link_subtitle">Controls for PCI, HIPAA, GDPR, and beyond</div></a></li>
+																									<li><a class="dl_event_click" href="../../use-cases/devops-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions usecases" data-dl-label="Automate DevSecOps">Automate DevSecOps<div class="small_link_subtitle">Security and speed without compromise</div></a></li>
+																					</ul>
+													</div>
+						
+					</div><!-- v2_usecases_links_wrap -->
+
+				</div><!-- is-4 usecases -->
+
+
+
+
+				<div class="column is-8-widescreen is-7-desktop is-12-tablet">
+
+					<div class="v2_generic_links_wrap solutions_links_wrap fadeInUp animationDelay_1">
+						<div class="columns is-multiline is-gapless">
+							<div class="column is-12">
+
+																											<a class="v2_generic_links_title solutions_links_title dl_event_click" href="../../solutions/aws-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="Solutions">Solutions</a>
+																	
+							</div><!-- is-12 -->
+
+
+																<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+										<ul class="v2_generic_links solutions_links">
+
+																											<li><a class="dl_event_click" href="../../solutions/docker-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="Docker Security">Docker Security<div class="small_link_subtitle">Enterprise-Grade security for Docker environments</div></a></li>
+																													<li><a class="dl_event_click" href="../../solutions/aws-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="AWS Cloud Security">AWS Cloud Security<div class="small_link_subtitle">Protect cloud native workloads on AWS</div></a></li>
+																													<li><a class="dl_event_click" href="../../solutions/google-cloud-kubernetes-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="Google Cloud Security">Google Cloud Security<div class="small_link_subtitle">Secure K8s apps on Google Cloud Platform</div></a></li>
+																															</ul>
+																</div><!-- column is-6 -->
+																<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+																	<ul class="v2_generic_links solutions_links">
+																														<li><a class="dl_event_click" href="../../solutions/red-hat-openshift-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="OpenShift Security">OpenShift Security<div class="small_link_subtitle">Cloud Native Security for Red Hat OpenShift </div></a></li>
+																													<li><a class="dl_event_click" href="../../solutions/vmware-tanzu/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="VMware Tanzu Security">VMware Tanzu Security<div class="small_link_subtitle">Native security across VMware Tanzu</div></a></li>
+																													<li><a class="dl_event_click" href="../../solutions/azure-container-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="solutions" data-dl-label="Azure Cloud Security">Azure Cloud Security<div class="small_link_subtitle">Full Lifecycle Security for Azure Container Workloads</div></a></li>
+																								</ul><!-- solutions links -->
+									</div><!-- is-6 solutions -->
+								
+						</div><!-- columns -->
+					</div><!-- solutions_links_wrap -->
+
+
+
+					<div class="v2_generic_links_wrap verticals_links_wrap fadeInUp animationDelay_1">
+						<div class="columns is-multiline is-gapless">
+							<div class="column is-12">
+
+																											<a class="v2_generic_links_title verticals_links_title dl_event_click" href="../../solutions/federal/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="verticals" data-dl-label="Industry">Industry</a>
+																	
+							</div><!-- is-12 -->
+
+
+																<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+										<ul class="v2_generic_links verticals_links">
+
+																											<li><a class="dl_event_click" href="../../solutions/federal/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="verticals" data-dl-label="Federal">Federal<div class="small_link_subtitle">CNAPP solution for Federal Government</div></a></li>
+																															</ul>
+																</div><!-- column is-6 -->
+																<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+																	<ul class="v2_generic_links verticals_links">
+																														<li><a class="dl_event_click" href="https://www.aquasec.com/solutions/finance"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="verticals" data-dl-label="Financial Services">Financial Services<div class="small_link_subtitle">One platform for financial services</div></a></li>
+																								</ul><!-- verticals links -->
+									</div><!-- is-6 verticals -->
+								
+						</div><!-- columns -->
+					</div><!-- verticals_links_wrap -->
+
+
+				</div><!-- is-8 solutions links -->
+
+			</div><!-- columns -->
+			
+
+
+
+		</div><!-- is-6 -->
+
+
+
+		<div class="column is-2-widescreen is-3-desktop is-hidden-mobile nav_col_wrap nav_cta_col white_bg_right_column v2_resource_card_column">
+			<div class="section nav_col v2_resource_card_wrap fadeInUp animationDelay_2">
+
+					<a href="https://info.aquasec.com/aws-misconfigurations" target="_blank" class="card resource_link_card resource_item dl_promo_click" data-dl-id="15220" data-dl-name="The 15 Riskiest AWS Misconfigurations" data-dl-creative="Whitepaper" data-dl-position="main menu solutions cta">
+
+		<div class="card-image resource_image_wrap"><img class="resource_image" src="../../wp-content/uploads/2021/01/15-misfigs-Resources-thumbnail-1.jpg" alt="" loading="lazy" /></div>
+
+		<div class="card-content">
+
+			<div class="resource_type">Whitepaper</div>
+			<div class="resource_title">The 15 Riskiest AWS Misconfigurations</div>
+			
+			
+			
+		</div><!-- card-content -->
+
+		<div class="card-footer">
+			<div class="resource_arrowlink">Download Now</div>
+					</div>
+
+	</a><!-- resource-item -->
+
+
+
+
+			</div><!-- nav_col -->
+		</div><!-- column -->
+
+	</div><!-- columns -->
+</div><!-- nav_container -->								<div class="navigation_shadow dropdown_navigation_shadow"></div>
+							</div><!-- navbar-dropdown -->
+
+							
+							<div class="breaklevel_item with_arrow break-navbar-item-resources">Resources</div>
+							<div id="navbar-dropdown-resources" class="navbar-dropdown navbar_dropdown_wrap nav_resources_wrap">
+								<div class="container nav_container">
+	<div class="columns is-gapl*ess is-marginless is-multiline">
+
+		<div class="column is-3-widescreen is-3-desktop is-12-tablet white_bg_left_column">
+
+			<div class="resources_leftctas_wrap fadeInUp">
+
+							<a class="resources_main_left_cta" href="../index.html" >
+					<div class="cta_pretitle">The best of cloud native</div>
+					<div class="cta_title">Aqua Blog</div>
+					<div class="cta_subtitle">Expert insight, best practices and advice on cloud native security, trends, threat intelligence and compliance</div>
+					<div class="button arrowlinkbutton is-royalblue cta_link">Read the Blog</div>
+				</a><!-- resources_main_left_cta -->
+							
+
+
+
+			</div><!-- resources_leftctas_wrap -->
+
+
+							<div class="resources_left_cta_links fadeInUp animationDelay_1">
+					<ul>
+											<li><a class="button arrowlinkbutton is-royalblue link_item dl_event_click" href="https://www.aquasec.com/blog/sec-vs-solarwinds-ciso" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources_left_cta_links" data-dl-label="SEC vs. SolarWinds: A Cybersecurity Game Changer for CISOs">SEC vs. SolarWinds: A Cybersecurity Game Changer for CISOs</a></li>
+											<li><a class="button arrowlinkbutton is-royalblue link_item dl_event_click" href="https://www.aquasec.com/blog/accenture-and-aqua-partner-to-empower-cloud-security" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources_left_cta_links" data-dl-label="Accenture and Aqua Partner to Empower Cloud Security">Accenture and Aqua Partner to Empower Cloud Security</a></li>
+										</ul>
+				</div><!-- resources_leftctas_links -->
+			
+
+
+		</div><!-- is-3 -->
+
+
+		<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+			<div class="columns is-multiline is-gap*less">
+
+				<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+					<div class="v2_generic_links_wrap resources_links_wrap v2_resources_resources_links_wrap fadeInUp animationDelay_1">
+
+												<div class="section nav_col">
+
+
+							
+																			<div class="v2_generic_links_title resources_links_title">Resources</div>
+									
+							
+																<ul class="v2_generic_links resources_links">
+
+																							<li><a class="dl_event_click" href="../../resources/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources resources" data-dl-label="Resources Center">Resources Center<div class="small_link_subtitle">eBooks, Data sheets, Whitepapers, Webinars, and much more</div></a></li>
+																									<li><a class="dl_event_click" href="../../resources/virtual-container-security-channel/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources resources" data-dl-label="The Cloud Native Channel">The Cloud Native Channel<div class="small_link_subtitle">Cloud native security webinars & videos</div></a></li>
+																									<li><a class="dl_event_click" href="https://aquademy.aquasec.com/"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources resources" data-dl-label="Aquademy">Aquademy<div class="small_link_subtitle">The Aqua academy</div></a></li>
+																					</ul>
+													</div>
+						
+					</div><!-- v2_resources_resources_links_wrap -->
+
+				</div><!-- is-6 resources -->
+
+
+				<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+					<div class="v2_generic_links_wrap resources_links_wrap v2_resources_wiki_links_wrap">
+
+												<div class="section nav_col">
+
+
+							
+								
+																<ul class="v2_generic_links resources_links fadeInUp animationDelay_3">
+
+																							<li><a class="dl_event_click" href="../../cloud-native-academy/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Cloud Native Wiki"><span class="wiki_link_icon"></span>Cloud Native Wiki<div class="small_link_subtitle">The educational center for everything cloud native</div></a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/docker-container/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Docker Containers">Docker Containers</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/supply-chain-security/supply-chain-security-mitigating-the-supply-chain-threat/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Software supply chain security">Software supply chain security</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/cspm/cloud-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Cloud security">Cloud security</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/kubernetes-101/kubernetes-complete-guide/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Kubernetes">Kubernetes</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/application-security/application-security/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="Application Security">Application Security</a></li>
+																									<li><a class="dl_event_click" href="../../cloud-native-academy/devsecops/devsecops/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="resources wiki" data-dl-label="DevSecOps">DevSecOps</a></li>
+																					</ul>
+													</div>
+						
+					</div><!-- v2_resources_wiki_links_wrap -->
+
+				</div><!-- is-6 wiki -->
+
+
+							
+
+
+			</div><!-- columns -->
+			
+		</div><!-- is-9 -->
+
+
+		<div class="column is-3-desktop is-12-tablet is-hidden-mobile white_bg_right_column">
+
+			<div class="research_section_wrap">
+
+			<a href="../../research/index.html" class="research_cta fadeInUp animationDelay_4" target="_blank">
+											<img src="../../wp-content/uploads/2019/08/Horizontal-Dark-Abyss.svg" alt="" class="research_cta_logo" width="100" height="115" />
+					
+
+											<div class="subtitle research_cta_title">Aqua research team</div>
+					
+											<div class="subtitle research_cta_subtitle">Security research focused on the cloud native stack to identify new threats and attack vectors</div>
+					
+					<div class="button arrowlinkbutton is-royalblue research_cta_button" target="_blank">More security research </div>
+			</a><!-- research_cta -->
+										<div class="research_latest_wrap fadeInUp animationDelay_5">
+
+						<a href="https://info.aquasec.com/2023-cloud-native-threat-report" class="research_latest_link" target="_blank">
+							<span class="research_latest_report_title">2023 Annual Aqua Nautilus Research</span><br />A Comprehensive Cloud Native Threat Report						</a>
+						</div><!-- research_latest -->
+						
+			</div><!-- research_section_wrap -->
+		</div><!-- column -->
+
+
+	</div><!-- columns -->
+</div><!-- nav_container -->								<div class="navigation_shadow dropdown_navigation_shadow"></div>
+							</div><!-- navbar-dropdown -->
+
+							<div class="breaklevel_item with_arrow break-navbar-item-company">Company</div>
+							<div id="navbar-dropdown-company" class="navbar-dropdown navbar_dropdown_wrap nav_company_wrap">
+								<div class="container nav_container">
+	<div class="columns is-gap*less is-marginless">
+		
+
+		<div class="column is-3-widescreen is-3-desktop is-12-tablet white_bg_left_column">
+		
+			
+
+
+							
+
+									<div class="company_left_awards_title fadeInUp animationDelay_1">Recognized Leadership</div>
+				
+				<div class="v2_generic_links_wrap company_left_awards fadeInUp animationDelay_1">
+					<ul class="v2_generic_links awards_links">
+											<li><a class="award_item dl_event_click" href="https://info.aquasec.com/ciso-choice-awards?utm_source=zoom&amp;utm_campaign=cwpp&amp;utm_content=ciso_awards" target="_blank"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_left_awards" data-dl-label="CISO Choice Awards">
+							<div class="award_title">CISO Choice Awards</div>
+							<div class="award_details">Winner for Cloud Workload Protection Platform (CWPP)</div>
+						</a></li>
+											<li><a class="award_item dl_event_click" href="https://info.aquasec.com/forrester-tei" target="_blank"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_left_awards" data-dl-label="Forrester Consulting: The Total Economic Impact™ of Aqua CNAPP">
+							<div class="award_title">Forrester Consulting: The Total Economic Impact™ of Aqua CNAPP</div>
+							<div class="award_details">90% Reduction in vulnerability research and detection time</div>
+						</a></li>
+											<li><a class="award_item dl_event_click" href="https://info.aquasec.com/frost-sullivan-cnapp" target="_blank"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_left_awards" data-dl-label="Frost & Sullivan CNAPP report">
+							<div class="award_title">Frost & Sullivan CNAPP report</div>
+							<div class="award_details">Top innovation leader</div>
+						</a></li>
+										</ul>
+				</div><!-- company_left_awards -->
+			
+
+
+			
+
+		</div><!-- is-3 -->
+
+
+		<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+
+
+			<div class="v2_generic_links_wrap company_links_wrap  fadeInUp animationDelay_2">
+				<div class="columns is-multiline is-gapless">
+					<div class="column is-12">
+
+						
+					</div><!-- is-12 -->
+
+
+												<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+								<ul class="v2_generic_links company_links">
+
+																							<li><a class="dl_event_click" href="../../about-us/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="About Us">About Us</a></li>
+																									<li><a class="dl_event_click" href="../../customers/index.html" target="_self" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Customers">Customers</a></li>
+																									<li><a class="dl_event_click" href="../../partners/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Partners">Partners</a></li>
+																									<li><a class="dl_event_click" href="../../about-us/news/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Newsroom">Newsroom</a></li>
+																											</ul>
+														</div><!-- column is-6 -->
+														<div class="column is-6-widescreen is-6-desktop is-12-tablet">
+															<ul class="v2_generic_links company_links">
+																										<li><a class="dl_event_click" href="../../events/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Upcoming Events">Upcoming Events</a></li>
+																									<li><a class="dl_event_click" href="../../careers/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Careers">Careers</a></li>
+																									<li><a class="dl_event_click" href="https://success.aquasec.com/"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Support">Support</a></li>
+																									<li><a class="dl_event_click" href="../../services/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company" data-dl-label="Services">Services</a></li>
+																				</ul><!-- company links -->
+							</div><!-- is-6 company -->
+								
+													<div class="column is-12-widescreen is-12-desktop is-12-tablet">
+								<div class="contactdetails_links_wrap  fadeInUp animationDelay_3">
+		
+																			<div class="contactdetails_links_title">Connect</div>
+											
+									<ul class="contactdetails_links">
+																					<li class="navbar-item menu_item_with_icon icon_mail"><a class="dl_event_click" href="../../about-us/contact-us/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Contact">Contact</a></li>
+																					<li class="navbar-item menu_item_with_icon icon_twitter"><a class="dl_event_click" href="https://x.com/AquaSecurityHQ" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Twitter">Twitter</a></li>
+																					<li class="navbar-item menu_item_with_icon icon_facebook"><a class="dl_event_click" href="https://www.facebook.com/AquaSecTeam" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Facebook">Facebook</a></li>
+																					<li class="navbar-item menu_item_with_icon icon_linkedin"><a class="dl_event_click" href="https://www.linkedin.com/company/aquasecteam" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Linkedin">Linkedin</a></li>
+																					<li class="navbar-item menu_item_with_icon icon_instagram"><a class="dl_event_click" href="https://www.instagram.com/aquaseclife/" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_contact" data-dl-label="Instagram">Instagram</a></li>
+																			</ul>
+		
+								</div><!-- contactdetails_links_wrap -->
+							</div><!-- is-12 -->
+						
+				</div><!-- columns -->
+			</div><!-- company_links_wrap -->
+
+		</div><!-- is-8 -->
+
+		<div class="column is-3-widescreen is-4-desktop is-hidden-mobile white_bg_right_column company_recent_news_wrap">
+								<div class="v2_generic_links_wrap company_links_wrap fadeInUp animationDelay_4">
+					<div class="section nav_col">
+								<a class="v2_generic_links_title company_links_title dl_event_click" href="../../about-us/news/index.html"  data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_news" data-dl-label="News">News</a>
+		
+		<div class="newsroom_items_wrap">
+					
+									<a class="newsroom_item dl_event_click" href="../../news/gartner-cnapp-2024/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_news" data-dl-label="Aqua Security Named a Representative Vendor in the 2024 Gartner® Market Guide for Cloud-Native Application Protection Platforms (CNAPP)">
+											<div class="newsroom_image"><img width="140" height="140" src="../../wp-content/themes/aqua3/images/aqua_default_140x140.png" alt="Aqua logo" loading="lazy"></div>
+						<div class="newsroom_title"><div>Aqua Security Named a Representative Vendor in the 2024 Gartner® Market Guide for Cloud-Native Application Protection Platforms (CNAPP)</div></div>
+					</a>
+					
+									<a class="newsroom_item dl_event_click" href="https://www.csoonline.com/article/3484842/s3-shadow-buckets-leave-aws-accounts-open-to-compromise.html/amp/" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_news" data-dl-label="S3 shadow buckets leave AWS accounts open to compromise">
+											<div class="newsroom_image"><img width="140" height="140" src="../../wp-content/uploads/2023/09/Newsroom-logos-CSO-140x140.jpg" class="attachment-140x140 size-140x140 wp-post-image" alt="" loading="lazy" decoding="async" srcset="https://www.aquasec.com/wp-content/uploads/2023/09/Newsroom-logos-CSO-140x140.jpg 140w, https://www.aquasec.com/wp-content/uploads/2023/09/Newsroom-logos-CSO-150x150.jpg 150w, https://www.aquasec.com/wp-content/uploads/2023/09/Newsroom-logos-CSO.jpg 200w" sizes="(max-width: 140px) 100vw, 140px" /></div>
+						<div class="newsroom_title"><div>S3 shadow buckets leave AWS accounts open to compromise</div></div>
+					</a>
+					
+									<a class="newsroom_item dl_event_click" href="../../news/traceeshark-open-source-tool/index.html" target="_blank" data-dl-event="menu_click" data-dl-category="menu" data-dl-action="company_news" data-dl-label="Aqua Security Unveils Traceeshark: Open Source Tool Combining Tracee’s Dynamic Analysis of Linux Malware with Wireshark">
+											<div class="newsroom_image"><img width="140" height="140" src="../../wp-content/themes/aqua3/images/aqua_default_140x140.png" alt="Aqua logo" loading="lazy"></div>
+						<div class="newsroom_title"><div>Aqua Security Unveils Traceeshark: Open Source Tool Combining Tracee’s Dynamic Analysis of Linux Malware with Wireshark</div></div>
+					</a>
+			</div><!-- newsroom_items_wrap -->	 
+	
+						</div>
+				</div>
+
+		</div><!-- is-4 -->
+
+	</div><!-- columns -->
+</div><!-- nav_container -->
+								<div class="navigation_shadow dropdown_navigation_shadow"></div>
+							</div><!-- navbar-dropdown -->
+
+						
+
+					</div><!-- navbar-start -->
+
+
+					<div class="navbar-end">
+
+						<!-- nav_rightmenu starts -->
+
+												<div class="navbar-item search_box">Search</div>
+
+												<div class="navbar-item">
+							<div class="field is-grouped">
+																	<p class="control">
+								
+									
+																			<a href="../../demo/index.html"  class="button is-primary type_btn dl_event_click" data-dl-event="trial_header" data-dl-category="trial" data-dl-action="click button" data-dl-label="header_right_menu_button">Get Started</a>
+																		
+																	</p>
+								
+																						</div>
+						</div><!-- navbar-item -->
+					<!-- nav_rightmenu ends -->
+
+
+					</div><!-- navbar-end -->
+
+
+					
+						<div class="search_box_wrap">
+							<div class="search_box_target">
+																															</div><!-- search_box_target -->
+							<div class="search_box_close"></div>
+						</div><!-- search_box_wrap -->
+
+					
+				</div><!-- main-navigation-navbar -->
+
+
+			</div><!-- container -->
+
+			
+		</nav>
+	</div><!-- v2_header_navbar_wrap -->
+
+
+	
+<script type="text/javascript">
+var $jnv1 = jQuery.noConflict();
+$jnv1(document).ready(function(){
+
+	// main menu
+	$jnv1('.v2_header_navbar_wrap .navbar-burger').on('click', function() {
+		$jnv1(this).toggleClass('is-active');
+		$jnv1('.v2_header_navbar_wrap .navbar-menu').toggleClass('is-active');
+		$jnv1('html').toggleClass('scroll-disable');
+	});
+
+		$jnv1('.navbar-item-platform,#navbar-dropdown-platform:not(.break_show-dropdown)').hover(function() {
+		$jnv1('.navbar-item-platform').addClass('show-hover');
+		$jnv1('#navbar-dropdown-platform').addClass('show-dropdown animated');
+	}, function() {
+		$jnv1('.navbar-item-platform').removeClass('show-hover');
+		$jnv1('#navbar-dropdown-platform').removeClass('show-dropdown animated');
+	});
+
+	$jnv1('.break-navbar-item-platform').on('click', function() {
+		$jnv1(this).toggleClass('break_is-active');
+		$jnv1('#navbar-dropdown-platform').toggleClass('break_show-dropdown');
+	});
+
+	$jnv1('.navbar-item-solutions,#navbar-dropdown-solutions:not(.break_show-dropdown)').hover(function() {
+		$jnv1('.navbar-item-solutions').addClass('show-hover');
+		$jnv1('#navbar-dropdown-solutions').addClass('show-dropdown animated');
+	}, function() {
+		$jnv1('.navbar-item-solutions').removeClass('show-hover');
+		$jnv1('#navbar-dropdown-solutions').removeClass('show-dropdown animated');
+	});
+
+	$jnv1('.break-navbar-item-solutions').on('click', function() {
+		$jnv1(this).toggleClass('break_is-active');
+		$jnv1('#navbar-dropdown-solutions').toggleClass('break_show-dropdown');
+	});
+			
+			
+	$jnv1('.navbar-item-resources,#navbar-dropdown-resources:not(.break_show-dropdown)').hover(function() {
+		$jnv1('.navbar-item-resources').addClass('show-hover');
+		$jnv1('#navbar-dropdown-resources').addClass('show-dropdown animated');
+	}, function() {
+		$jnv1('.navbar-item-resources').removeClass('show-hover');
+		$jnv1('#navbar-dropdown-resources').removeClass('show-dropdown animated');
+	});
+
+	$jnv1('.break-navbar-item-resources').on('click', function() {
+		$jnv1(this).toggleClass('break_is-active');
+		$jnv1('#navbar-dropdown-resources').toggleClass('break_show-dropdown');
+	});
+
+
+			
+
+	$jnv1('.navbar-item-company,#navbar-dropdown-company:not(.break_show-dropdown)').hover(function() {
+		$jnv1('.navbar-item-company').addClass('show-hover');
+		$jnv1('#navbar-dropdown-company').addClass('show-dropdown animated');
+	}, function() {
+		$jnv1('.navbar-item-company').removeClass('show-hover');
+		$jnv1('#navbar-dropdown-company').removeClass('show-dropdown animated');
+	});
+
+	$jnv1('.break-navbar-item-company').on('click', function() {
+		$jnv1(this).toggleClass('break_is-active');
+		$jnv1('#navbar-dropdown-company').toggleClass('break_show-dropdown');
+	});
+
+
+});
+</script>		</div><!-- hero-head -->
+
+		
+		<div class="hero-foot">
+					</div><!-- hero-foot -->
+
+	</div><!-- hero -->
+
+	
+	
+	
+
+</div><!-- hero_wrap --><!-- hero ends -->
+
+<div class="post_pagewrap with_toc">		<!-- blog header title starts -->
+									<div class="section header_title_wrap anima*table">
+					<div class="container">
+						<div class="header_title_content_wrap match_blog_width">
+							
+							<a href="../index.html" class="page_label has_left_arrow fadeInUp">Aqua Blog</a>	
+							<h1 class="title page_title fadeInUp">Top 22 Docker Security Best Practices: Ultimate Guide</h1>
+														
+
+							
+							<div class="post_meta">
+								<div class="post_author_info"><div class="avatars_wrap"><a href="../../authors/rani-osnat/index.html" class="avatar_wrap"><div class="author_avatar" style="background-image:url(https://www.aquasec.com/wp-content/uploads/2023/12/Ranijpg.jpg);"></div></a></div><div class="names_wrap"><a href="../../authors/rani-osnat/index.html" class="name_wrap">Rani Osnat</a><div class="post_date">July 1, 2021</div></div></div></div><!-- post_meta -->
+
+						</div><!-- header_title_content_wrap -->
+
+													<div class="post_cover_image">
+								<div class="match_blog_width">
+									<img fetchpriority="high" src="https://www.aquasec.com/wp-content/uploads/2021/07/2021-Docker-Security-Best-Practices-UPDATE-Blog-Image-1.jpg" alt="Top 22 Docker Security Best Practices: Ultimate Guide" width="850" height="450" />
+								</div>
+							</div>
+						
+					</div><!-- container -->
+				</div><!-- header_title_wrap -->
+		<!-- blog header title ends -->
+
+	<!-- content starts -->
+	
+	<div class="section content_wrap main_content_wrap">
+		<div class="container">
+			<div class="main_content_column match_blog_width">
+				<div class="content">
+					
+					<p data-pm-slice="1 1 []">While Docker has become synonymous with containers, various container tools and platforms have emerged to make the process of developing and running containers more efficient. Still, a lot of the same principles around Docker security apply for protecting container-based applications built with other tools as well. We compiled 20 essential Docker security best practices into the most comprehensive hands-on guide that will help you build more <a href="../../cloud-native-academy/container-security/container-security/index.html" rel="noopener">secure containers</a>.</p>
+<p><span id="more-15220"></span><br />
+<a name="section-1" class="anchor_offset"></a></p>
+<div id="section_wrap_1" class="toc_section_wrap">
+<h2>A Brief Introduction to Docker Security</h2>
+<p>Docker security refers to the measures, practices, and tools used to protect Docker containers and the Docker environment from threats and vulnerabilities. It involves securing the container&#8217;s application, the Docker daemon, the host OS, and the hardware that runs the container.</p>
+<p>A major advantage of Docker is that containers are isolated from each other and the host system, providing a level of security by design. However, this isolation is not absolute, and there can be many situations where a vulnerability in one container can affect others or even the host system.</p>
+<p>Given the growing popularity of Docker and the increasing complexity of threats, there is a growing need for Docker security. A comprehensive Docker security strategy should cover all aspects of the Docker environment, from the images used to create containers to the runtime environment and orchestration.
+</p></div>
+<p><a name="section-2" class="anchor_offset"></a></p>
+<div id="section_wrap_2" class="toc_section_wrap">
+<h3>Common Security Risks in Docker</h3>
+<p style="font-size: 16px;"><span style="color: #000000;">Here are some of the most common risks facing your Docker environment:</span></p>
+<h4>Unrestricted Traffic and Unsafe Communication</h4>
+<p style="font-size: 16px;"><span style="color: #000000;">Docker enables various containers to communicate with each other, making it a convenient platform for deploying multi-container applications. However, this convenience can also pose a significant security risk if not properly managed.</span></p>
+<p style="font-size: 16px;"><span style="color: #000000;">By default, Docker allows all network traffic between containers on the same host. This unrestricted traffic can potentially expose sensitive data or allow malicious activities if a container is compromised. Furthermore, communication between the Docker client and the Docker daemon is not encrypted by default. This lack of encryption poses a risk as sensitive data, such as passwords, could be intercepted and exploited.</span></p>
+<h4>Vulnerable and Malicious Container Images</h4>
+<p style="font-size: 16px;"><span style="color: #000000;">The second common security risk in Docker is the use of vulnerable and malicious <a href="../../cloud-native-academy/container-security/container-images/index.html" rel="noopener">container images</a>. Docker Hub, the public registry for Docker images, hosts millions of images. While this extensive collection provides convenience and variety, it also poses a significant security risk.</span></p>
+<p style="font-size: 16px;"><span style="color: #000000;">Users often pull images from <a href="../../cloud-native-academy/docker-container/using-docker-hub-responsibly-4-security-best-practices/index.html" rel="noopener">Docker Hub</a> without verifying their authenticity or checking for vulnerabilities. This practice can lead to the deployment of containers packed with malicious code or outdated software with known vulnerabilities. By using such compromised images, users unknowingly expose their Docker environments to potential attacks.</span></p>
+<h4>Root Access for Containers</h4>
+<p style="font-size: 16px;"><span style="color: #000000;">One of the critical security concerns in Docker is the provision of root access to containers. By default, Docker containers run as root, which means they have high-level privileges within the container. This default setting is often necessary for certain operations within the container, but it poses a substantial security risk.</span></p>
+<p style="font-size: 16px;"><span style="color: #000000;">If an attacker gains control over a container that has root privileges, they may attempt to exploit this access to affect the host or other containers. This situation is especially risky because Docker&#8217;s container isolation, while robust, isn&#8217;t infallible. An attacker with root access in a container could exploit certain vulnerabilities to <a href="../../cloud-native-academy/supply-chain-security/privilege-escalation/index.html" rel="noopener">escalate privileges</a> and gain control over the host system or other containers.</span></p>
+<h4>Host Kernel Vulnerabilities</h4>
+<p style="font-size: 16px;"><span style="color: #000000;">Docker containers share the host system&#8217;s kernel. This shared environment is an integral part of Docker&#8217;s lightweight and efficient nature. However, it also presents a significant security risk.</span></p>
+<p style="font-size: 16px;"><span style="color: #000000;">If a container manages to break out of its isolated environment, it can potentially exploit vulnerabilities in the host kernel. Furthermore, any kernel vulnerabilities on the host system inherently affect all containers sharing that kernel. Consequently, a single compromised container could lead to a system-wide security breach.</span></p>
+</div>
+<p><a name="section-3" class="anchor_offset"></a></p>
+<div id="section_wrap_3" class="toc_section_wrap">
+<h3>22 Key Docker Security Best Practices</h3>
+</div>
+<p><a name="section-4" class="anchor_offset"></a></p>
+<div id="section_wrap_4" class="toc_section_wrap">
+<h3>Docker and Host Configuration</h3>
+<h4>1. Keep Host and Docker Up to Date</h4>
+<p>It is essential to patch both Docker Engine and the underlying host operating system running Docker, to prevent a range of known vulnerabilities, many of which can result in container espaces.</p>
+<p>Since the kernel is shared by the container and the host, kernel exploits when an attacker manages to run on a container can directly affect the host. For example, a successful kernel exploit can enable attackers to break out of a non-privileged container and gain root access to the host.</p>
+<h4>2. Do Not Expose the Docker Daemon Socket</h4>
+<p>The Docker daemon socket is a Unix network socket that facilitates communication with the Docker API. By default, this socket is owned by the root user. If anyone else obtains access to the socket, they will have permissions equivalent to root access to the host.</p>
+<p>Take note that it is possible to <a style="color: #1904da;" href="https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option">bind the daemon socket to a network interface</a>, making the Docker container available remotely. This option should be enabled with care, especially in production containers.</p>
+<p>To avoid this issue, follow these best practices:</p>
+<ul>
+<li aria-level="1">Never make the daemon socket available for remote connections, unless you are using Docker&#8217;s encrypted HTTPS socket, which supports authentication.</li>
+<li aria-level="1">Do not run Docker images with an option like <span style="font-size: 14px;">-v /var/run/docker.sock://var/run/docker.sock</span>, which exposes the socket in the resulting container.</li>
+</ul>
+<h4>3. Run Docker in Rootless Mode</h4>
+<p>Docker provides “rootless mode”, which lets you run Docker daemons and containers as non-root users. This is extremely important to mitigate vulnerabilities in daemons and container runtimes, which can grant root access of entire nodes and clusters to an attacker.</p>
+<p>Rootless mode runs Docker daemons and containers within a user namespace. This is similar to the <span style="font-size: 14px; background-color: #eeeeee;">userns-remap</span> mode, but unlike it, rootless mode runs daemons and containers without root privileges by default.</p>
+<p><strong>      To run Docker in rootless mode:</strong></p>
+<ol>
+<li aria-level="1">Install Docker in root mode &#8211; see <a style="color: #1904da;" href="https://docs.docker.com/engine/security/rootless/">instructions</a>.</li>
+<li aria-level="1">Use the following command to launch the Daemon when the host starts:<br />
+<code>systemctl --user enable docker</code><br />
+<code>sudo loginctl enable-linger $(whoami)</code><br />
+<span style="font-size: 14px; background-color: #eeeeee;"><br />
+</span></li>
+<li aria-level="1">Here is how to run a container as rootless using Docker context:<br />
+<code>docker context use rootless</code><br />
+<code>docker run -d -p 8080:80 nginx</code></li>
+</ol>
+<h4>4. Avoid Privileged Containers</h4>
+<p>Docker provides a <a style="color: #1904da;" href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">privileged mode</a>, which lets a container run as root on the local machine. Running a container in privileged mode provides the capabilities of that host—including:</p>
+<ul>
+<li aria-level="1">Root access to all devices</li>
+<li aria-level="1">Ability to tamper with Linux security modules like AppArmor and SELinux</li>
+<li aria-level="1">Ability to install a new instance of the Docker platform, using the host&#8217;s kernel capabilities, and run Docker within Docker.</li>
+</ul>
+<p>Privileged containers create a major security risk—enabling attackers to easily escalate privileges if the container is compromised. Therefore, it is not recommended to use privileged containers in a production environment. Best of all, never use them in any environment.</p>
+<p>To check if the container is running in privileged mode, use the following command (returns true if the container is privileged, or an error message if not):</p>
+<p><code>docker inspect --format =''[container_id]</code></p>
+<h4>5. Limit Container Resources</h4>
+<p>When a container is compromised, attackers may try to make use of the underlying host resources to perform malicious activity. Set Docker memory and CPU usage limits to minimize the impact of breaches for resource-intensive containers.</p>
+<p>In Docker, the default setting is to allow the container to access all RAM and CPU resources on the host. It is important to <a style="color: #1904da;" href="https://docs.docker.com/config/containers/resource_constraints/">set resource quotas</a>, to limit the resources your container can use—for security reasons, and to ensure each container has the appropriate resources and does not disrupt other services running on the host.</p>
+<h4>6. Segregate Container Networks</h4>
+<p><a style="color: #1904da;" href="https://www.aquasec.com/a-brief-history-of-containers-from-1970s-chroot-to-docker-2016">Docker containers</a> require a network layer to communicate with the outside world through the network interfaces on the host. The default bridge network exists on all Docker hosts—if you do not specify a different network, new containers automatically connect to it.</p>
+<p>It is strongly recommended not to rely on the default bridge network—use custom bridge networks to control which containers can communicate between them, and to enable automatic DNS resolution from container name to IP address. You can create as many networks as you need and decide which networks each container should connect to (if at all).</p>
+<p>Ensure that containers can connect to each other only if absolutely necessary, and avoid connecting sensitive containers to public-facing networks.</p>
+<p>Docker provides network drivers that let you create your own bridge network, overlay network, or macvlan network. If you need more control, you can create a Docker network plugin.</p>
+<h4>7. Improve Container Isolation</h4>
+<p>Operations teams should create an optimized environment to run containers. Ideally, the operating system on a container host should protect the host kernel from container escapes, and prevent mutual influence between containers.</p>
+<p>Containers are Linux processes with isolation and resource limitations, running on a shared operating system kernel. Protecting a container is exactly the same as protecting any process running on Linux. You can use one or more of the following Linux security capabilities:</p>
+<ul>
+<li aria-level="1"><strong>Linux namespace</strong><strong><br />
+</strong>Namespaces make Linux processes appear to have access to their own, separate global resources. Namespaces provide an abstraction that gives the impression of running in a container on its own operating system. They are the basis of container isolation.</li>
+<li aria-level="1"><strong>SELinux</strong><strong><br />
+</strong>For Red Hat Linux distributions, SELinux provides an additional layer of security to isolate containers from each other and from the host. It allows administrators to apply mandatory access controls for users, applications, processes and files. It is a second line of defense that will stop attackers who manage to breach the namespace abstraction.</li>
+<li aria-level="1"><strong>AppArmor</strong><strong><br />
+</strong>For Debian Linux distributions, AppArmor is a Linux kernel enhancements that can limit programs in terms of the system resources they can access. It binds access control attributes to specific programs, and is controlled by security profiles loaded into the kernel at boot time.</li>
+<li aria-level="1"><strong>Cgroups</strong><strong><br />
+</strong>Limits, describes and isolates resource usage of a group of processes, including CPU, memory, disk I/O, and networking. You can use cgroups to prevent container resources from being used by other containers on the same host, and at the same time, stop attackers from creating pseudo devices.</li>
+<li aria-level="1"><strong>Capabilities</strong><strong><br />
+</strong>Linux allows you to limit privileges of any process, containers included. Linux provides “capabilities”, which are specific privileges that can be enabled for each process. When running a container, you can usually deny privileges for numerous capabilities, without affecting containerized applications.</li>
+<li aria-level="1"><strong>Seccomp</strong><strong><br />
+</strong>The secure computing mode (seccomp) in the Linux kernel lets you transition a process to a secure mode, in which it is only allowed to perform a small set of safe system calls. Setting a seccomp profile for a container provides one more level of defense against compromise.</li>
+</ul>
+<h4>8. Set Filesystem and Volumes to Read-only</h4>
+<p>A simple and effective security trick is to run containers with a read-only filesystem. This can prevent malicious activity such as deploying malware on the container or modifying configuration.</p>
+<p>The following code sets a <a href="../../cloud-native-academy/docker-container/index.html" rel="noopener">Docker container</a> to read only:</p>
+<h4>9. Complete Lifecycle Management</h4>
+<p><a href="../../aqua-cloud-native-security-platform/index.html" rel="noopener">Cloud native security</a> requires security controls and mitigation techniques at every stage of the application lifecycle, from build to workload and infrastructure. Follow these best practices:</p>
+<ul>
+<li aria-level="1">Implement vulnerability <a href="../../cloud-native-academy/docker-container/docker-scanning/index.html">scanning</a> to ensure clean code at all stages of the development lifecycle.</li>
+<li aria-level="1">Use a sandbox environment where you can QA your code before it goes into production, to ensure there is nothing malicious that will deploy at runtime.</li>
+<li aria-level="1">Implement drift prevention to ensure container immutability.</li>
+<li aria-level="1">Create an incident response process to ensure rapid response in the case of an attack</li>
+<li aria-level="1">Apply automated patching.</li>
+<li aria-level="1">Ensure you have robust auditing and forensics for quick troubleshooting and compliance reporting.</li>
+</ul>
+<h4>10. Restrict System Calls from Within Containers</h4>
+<p>In a container, you can choose to allow or deny any system calls. Not all system calls are required to run a container.</p>
+<p>With this in mind, you can monitor the container, obtain a list of all system calls made, explicitly allow those calls and no others. It is important to base your configuration on observation of the container at runtime, because you may not be aware of the specific system calls used by your container’s components, and how those calls are named in the underlying operating system.
+</p></div>
+<p><a name="section-5" class="anchor_offset"></a></p>
+<div id="section_wrap_5" class="toc_section_wrap">
+<h3>Securing Images</h3>
+<h4>11. Scan and Verify Container Images</h4>
+<p>Docker container images must be tested for vulnerabilities before use, especially if they were pulled from public repositories. Remember that a vulnerability in any component of your image will exist in all containers you create from it. If you use a base image to create new images, any vulnerability in the base image will extend to your new images.</p>
+<p><a style="color: #1904da;" href="../../products/container-vulnerability-scanning/index.html">Container image scanning </a>is the process of analyzing the content and composition of images to detect security issues, misconfigurations or vulnerabilities.</p>
+<p>Images containing software with security vulnerabilities are susceptible to attacks during container runtime. If you are building an image from the CI pipeline, you need to scan it before running it through the build. Images with vulnerabilities that exceed a severity threshold should fail the build. Unsafe images should not be pushed to a container registry accessible by production systems.</p>
+<p>There are many open source and proprietary <a href="../../cloud-native-academy/docker-container/docker-scanning/index.html">image scanners</a> available. A comprehensive solution can scan both the operating system (if the container runs a stripped-down Linux distribution), specific libraries running within the container, and their dependencies. Ensure the scanner supports the languages used by the components in your image.</p>
+<p>Most <a href="../../cloud-native-academy/application-security/container-scanning/index.html" rel="noopener">container scanning</a> tools use multiple Common Vulnerability and Exposure (CVE) databases, and test if those CVEs are present in a container image. Some tools can also test a container image for security best practices and misconfigurations.</p>
+<h4>12. Use Minimal Base Images</h4>
+<p>Docker images are commonly built on top of “base images”. While this is convenient, because it avoids having to configure an image from scratch, it raises security concerns. You may use a base image with components that are not really required for your purposes. A common example is using a base image with a full Debian Stretch distribution, whereas your specific project does not really require operating system libraries or utilities.</p>
+<p>Remember that any additional component added to your images expands the attack surface. Carefully select base images to ensure they suit your purposes, and if necessary, build your own minimal base image.</p>
+<h4>13. Don’t Leak Sensitive Info to Docker Images</h4>
+<p>Docker images often require sensitive data for their normal operations, such as credentials, tokens, SSH keys, TLS certificates, database names or connection strings. In other cases, applications running in a container may generate or store sensitive data. Sensitive information should never be hardcoded into the Dockerfile—it will be copied to Docker containers, and may be cached in intermediate container layers, even if you attempt to delete them.</p>
+<p>Container orchestrators like <a href="../../cloud-native-academy/kubernetes-101/kubernetes-complete-guide/index.html" rel="noopener">Kubernetes</a> and <a href="../../cloud-native-academy/docker-container/docker-swarm/index.html" rel="noopener">Docker Swarm</a> provide a secrets management capability which can solve this problem. You can use secrets to manage sensitive data a container needs at runtime, without storing it in the image or in source code.</p>
+<h4>14. Use Multi Stage Builds</h4>
+<p>To build <a href="../../cloud-native-academy/container-security/containerized-architecture/index.html#Building-Blocks-of-Containerized-Applications" rel="noopener">containerized applications</a> in a consistent manner, it is common to use multi-stage builds. This has both operational and security advantages.</p>
+<p>In a multi-stage build, you create an intermediate container that contains all the tools you need to compile or generate the final artifact. At the last stage, only the generated artifacts are copied to the final image, without any development dependencies or temporary build files.</p>
+<p>A well-designed multi-stage build contains only the minimal binary files and dependencies required for the final image, with no build tools or intermediate files. This significantly reduces the <a href="../../cloud-native-academy/vulnerability-management/attack-surface/index.html" rel="noopener">attack surface</a>.</p>
+<p>In addition, a multi-stage build gives you more control over the files and artifacts that go into a container image, making it more difficult for attackers or insiders to add malicious or untested artifacts without permission.</p>
+<h4>15. Secure Container Registries</h4>
+<p>Container registries are highly convenient, letting you download container images at the click of a button, or automatically as part of development and testing workflows.</p>
+<p>However, together with this convenience comes a security risk. There is no guarantee that the image you are pulling from the registry is trusted. It may unintentionally contain security vulnerabilities, or may have intentionally been replaced with an image compromised by attackers.</p>
+<p>The solution is to use a private registry deployed behind your own firewall, to reduce the risk of tampering. To add another layer of protection, ensure that your registry uses <a href="../../cloud-native-academy/kubernetes-101/kubernetes-rbac/index.html" rel="noopener">Role Based Access Control (RBAC)</a> to restrict which users can upload and download images from it.</p>
+<p>Avoid giving open access to your entire team—this simplifies operations, but increases the risk that a team member, or an attacker compromising their attack, can introduce unwanted artifacts into an image.</p>
+<h4>16. Use Fixed Tags for Immutability</h4>
+<p>Tags are commonly used to manage versions of Docker images. For example, a <span style="font-size: 14px;">latest</span> tag is used to indicate that this is the latest version of an image. However, because tags can be changed, it is possible for several images to have a latest tag, causing confusion and inconsistent behavior in automated builds.</p>
+<p>There are three main strategies for ensuring tags are immutable and are not affected by subsequent changes to the image:</p>
+<ul>
+<li aria-level="1"><strong>Preferring a more specific tag</strong>—if an image has several tags, a build process should select the tag containing the most information (e.g. both version and operating system).</li>
+<li aria-level="1"><strong>Keeping a local copy of images</strong>—for example, in a private repository, and confirming that tags are the same as those in the local copy.</li>
+<li aria-level="1"><strong>Signing images</strong>—Docker offers a Content Trust mechanism that allows you to cryptographically sign images using a private key. This guarantees the image, and its tags, have not been modified.</li>
+</ul>
+<h4>17. Add the HEALTHCHECK Instruction to the Container Image</h4>
+<p style="font-size: 16px;"><span style="color: #000000;">The HEALTHCHECK instruction tells Docker to continuously test a container, to check that it is still working. If Docker finds that a container is not healthy, it can automatically restart it. This can allow your Docker environment to automatically respond to issues that affect container availability or security.</span></p>
+<p style="font-size: 16px;"><span style="color: #000000;">Implementing the HEALTHCHECK instruction is straightforward. It involves adding a command to your Dockerfile that Docker can execute to check the health of your container. This command could be as simple as checking if a particular service is running or as complex as running a script that tests various aspects of your container.</span></p>
+<h4>18. Use COPY Instead of ADD When Writing Dockerfiles</h4>
+<p style="font-size: 16px;"><span style="color: #000000;">COPY and ADD are two commands you can use in your Dockerfiles to add elements to your container. The main difference between them is that ADD has some additional features—for example, it can automatically extract compressed files, and can download files from a URL. </span></p>
+<p style="font-size: 16px;"><span style="color: #000000;">These additional features in the ADD command can lead to security vulnerabilities. For example, if you use ADD to download a file from a URL, and that URL is compromised, your Docker container could be infected with malware. Therefore, it is more secure to use COPY in your Dockerfiles.</span></p>
+</div>
+<p><a name="section-6" class="anchor_offset"></a></p>
+<div id="section_wrap_6" class="toc_section_wrap">
+<h3>Monitoring Containers</h3>
+<h4>19. Monitor Container Activity</h4>
+<p><a href="../../cloud-native-academy/cspm/cloud-visibility/index.html" rel="noopener">Visibility</a> and <a href="../../cloud-native-academy/docker-container/container-monitoring/index.html" rel="noopener">monitoring</a> are critical to smooth operation and security of Docker containers. Containerized environments are dynamic, and close monitoring is required to understand what is running in your environment, identify anomalies and respond to them.</p>
+<p>Each container image can have multiple running instances. Due to the speed at which new images and versions are deployed, issues can quickly propagate across containers and applications. Therefore, it is critical to identify problems early and remediate them at the source—for example, by identifying a faulty image, fixing it, and rebuilding all containers using that image.</p>
+<p>Put tools and practices in place that can help you achieve observability of the following components:</p>
+<ul>
+<li aria-level="1">Docker hosts</li>
+<li aria-level="1">Container engines</li>
+<li aria-level="1">Master nodes (if running an orchestrator like Kubernetes)</li>
+<li aria-level="1">Containerized middleware and networking</li>
+<li aria-level="1">Workloads running in containers</li>
+</ul>
+<p>In large-scale environments, this can only be achieved with dedicated cloud-native monitoring tools.</p>
+<h4>20. Secure Containers at Runtime</h4>
+<p>At the center of the cloud native stack are workloads, always a prized asset for hackers. The ability to stop an attack in progress is of utmost importance but few organizations are effectively able to stop an attack or <a href="../../cloud-native-academy/cloud-attacks/zero-day-attack/index.html" rel="noopener">zero-day exploit</a> as it happens, or before it happens.</p>
+<p>Runtime security for Docker containers involves securing your workload, so that once a container is running, drift is not possible, and any malicious action is blocked immediately. Ideally, this should be done with minimal overhead and rapid response time.</p>
+<p>Implement drift prevention measures to stop attacks in progress and prevent zero day exploits.  In addition, use automated vulnerability patching and management to provide another layer of runtime security.</p>
+<h4>21. Save Troubleshooting Data Separately from Containers</h4>
+<p>If your team needs to log into your containers using SSH for every maintenance operation, this creates a security risk. You should design a way to maintain containers without needing to directly access them.</p>
+<p>A good way to do this and limit SSH access is to make the logs available outside the container. In this way, administrators can troubleshoot containers without logging in. They can then tear down existing containers and deploy new ones, without ever establishing a connection.</p>
+<h4>22. Use Metadata Labels for Images</h4>
+<p>Container labeling is a common practice, applied to objects like images, deployments, Docker containers, volumes, and networks.</p>
+<p>Use labels to add information to containers, such as licensing information, sources, names of authors, and relation of containers to projects or components. They can also be used to categorize containers and their contents for compliance purposes, for example labeling a container as containing protected data.</p>
+<p>Labels are commonly used to organize containerized environments and automate workflows. However, when workflows rely on labels, errors in applying a label can have severe consequences. To address this concern, automate labeling processes as much as possible, and carefully control which users and roles are allowed to assign or modify labels.
+</p></div>
+<p><a name="section-7" class="anchor_offset"></a></p>
+<div id="section_wrap_7" class="toc_section_wrap">
+<h3>Bonus Section: Docker CIS Security Benchmark: Safe Docker Configuration</h3>
+<p>CIS Benchmarks are universal security best practices developed by cybersecurity professionals and experts. Each CIS Benchmark provides guidelines for creating a secure system configuration. The following table summarizes recommendations from the <a style="color: #1904da;" href="../../cloud-native-academy/docker-container/docker-cis-benchmark/index.html">CIS Docker</a> Community Edition Benchmark, specifying how to set up a safe docker configuration.</p>
+<p>Download the full <a style="color: #1904da;" href="https://www.cisecurity.org/benchmark/docker/">CIS Docker Benchmark</a>.</p>
+<h4>Host Configuration</h4>
+<ul>
+<li aria-level="1">Create a separate partition for containers</li>
+<li aria-level="1">Harden the container host</li>
+<li aria-level="1">Update your Docker software on a regular basis</li>
+<li aria-level="1">Manage Docker daemon access authorization wisely</li>
+<li aria-level="1">Configure your Docker files directories, and</li>
+<li aria-level="1">Audit all Docker daemon activity.</li>
+</ul>
+<h4>Docker Daemon Configuration</h4>
+<ul>
+<li aria-level="1">Restrict network traffic between default bridge containers and access to new privileges from containers.</li>
+<li aria-level="1">Enable user namespace support to provide additional, Docker client commands authorization, live restore, and default cgroup usage</li>
+<li aria-level="1">Disable legacy registry operations and Userland Proxy</li>
+<li aria-level="1">Avoid networking misconfiguration by allowing Docker to make changes to iptables, and avoid experimental features during production.</li>
+<li aria-level="1">Configure TLS authentication for Docker daemon and centralized and remote logging.</li>
+<li aria-level="1">Set the logging level to &#8216;info&#8217;, and set an appropriate default ulimit</li>
+<li aria-level="1">Don’t use insecure registries and aufs storage drivers</li>
+<li aria-level="1">Apply base device size for containers and a daemon-wide custom SECCOMP profile to limit calls.</li>
+</ul>
+<h4>Container Images and Build File</h4>
+<ul>
+<li aria-level="1">Create a user for the container</li>
+<li aria-level="1">Ensure containers use only trusted images</li>
+<li aria-level="1">Ensure unnecessary packages are not installed in the container</li>
+<li aria-level="1">Include security patches during scans and rebuilding processes</li>
+<li aria-level="1">Enable content trust for Docker</li>
+<li aria-level="1">Add <span style="font-size: 14px;">HEALTHCHECK</span> instructions to the container image</li>
+<li aria-level="1">Remove <span style="font-size: 14px;">setuid</span> and <span style="font-size: 14px;">setgid</span> permissions from the images</li>
+<li aria-level="1">Use COPY is instead of ADD in Dockerfile</li>
+<li aria-level="1">Install only verified packages</li>
+<li aria-level="1">Don’t use update instructions in a single line or alone in the Dockerfile</li>
+<li aria-level="1">Don’t store secrets in Dockerfiles</li>
+</ul>
+<h4>Container Runtime</h4>
+<ul>
+<li aria-level="1">Restrict containers from acquiring additional privileges and restrict Linux Kernel Capabilities.</li>
+<li aria-level="1">Enable AppArmor Profile.</li>
+<li aria-level="1">Avoid use of privileged containers during runtime, running ssh within containers, mapping privileged ports within containers.</li>
+<li aria-level="1">Ensure sensitive host system directories aren’t mounted on containers, the container&#8217;s root filesystem is mounted as read-only, the Docker socket is not mounted inside any containers.</li>
+<li aria-level="1">Set appropriate CPU priority for the container, set &#8216;on-failure&#8217; container restart policy to &#8216;5&#8217;, and open only necessary ports on the container.</li>
+<li aria-level="1">Apply per need SELinux security options, and overwrite the default ulimit at runtime.</li>
+<li aria-level="1">Don’t share the host&#8217;s network namespace and the host&#8217;s process namespace, the host&#8217;s IPC namespace, mount propagation mode, the host&#8217;s UTS namespace, the host&#8217;s user namespaces.</li>
+<li aria-level="1">Limit memory usage for container and bind incoming container traffic to a specific host interface.</li>
+<li aria-level="1">Don’t expose host devices directly to containers, don’t disable the default SECCOMP profile, don’t use docker exec commands with privileged and user option, and don’t use Docker&#8217;s default bridge docker0.</li>
+<li aria-level="1">Confirm cgroup usage and use PIDs cgroup limit, check container health at runtime, and always update docker commands with the latest version of the image.</li>
+</ul>
+<h4>Docker Security Operations</h4>
+<p>Avoid image sprawl and container sprawl.</p>
+<h4>Docker Swarm Configuration</h4>
+<ul>
+<li aria-level="1">Enable swarm mode only if needed</li>
+<li aria-level="1">Create a minimum number of manager nodes in a swarm</li>
+<li aria-level="1">Bind swarm services are bound to a specific host interface</li>
+<li aria-level="1">Encrypt containers data exchange on different overlay network nodes</li>
+<li aria-level="1">Manage secrets in a Swarm cluster with Docker&#8217;s secret management commands</li>
+<li aria-level="1">Run swarm manager in auto-lock mode</li>
+<li aria-level="1">Rotate swarm manager auto-lock key periodically</li>
+<li aria-level="1">Rotate node and CA certificates as needed</li>
+<li aria-level="1">Separate management plane traffic from data plane traffic</li>
+</ul>
+</div>
+<p><a name="section-8" class="anchor_offset"></a></p>
+<div id="section_wrap_8" class="toc_section_wrap">
+<h3>Holistic Docker Security with Aqua</h3>
+<p>Aqua provides a platform that secures Cloud Native, serverless and container technologies like Docker. Aqua offers end-to-end security for applications running Docker Enterprise Edition or Community Edition, and protects you throughout the full lifecycle of your continuous delivery and DevOps pipeline: from the point where you shift left, through to runtime controls, firewall, audit, and compliance.</p>
+<h4>Continuous Image Assurance</h4>
+<p>Aqua scans images for malware, vulnerabilities, embedded secrets, configuration issues and OSS licensing. You can develop policies that outline, for example, which images can run on your Docker hosts. Aqua’s vulnerabilities database, founded on a continuously updated data stream, is aggregated from several sources and consolidated to make sure only the latest data is used, promoting accuracy and limiting false positives and negligible CVEs.</p>
+<p>Aqua offers an open source tool, called <a style="color: #33475b; background-color: #ffff64;" href="../../products/trivy/index.html">Trivy</a>, which lets you scan your container images for package vulnerabilities. <span style="color: #33475b; background-color: #faa52d;">Trivy</span> uses the same vulnerability database as Aqua’s commercial scanner. The key difference is that <span style="color: #33475b; background-color: #ffff64;">Trivy</span> runs according to the build steps created within your Dockerfile.</p>
+<h4>Runtime Security for Docker</h4>
+<p>Aqua protects Docker application at runtime, ensuring container immutability and prohibiting changes to running containers, isolating the container from the host via custom machine-learned SECCOMP profiles. It also ensures least privileges for files, executables and OS resources using a machine-learned behavioral profile, and manages network connections with a container firewall.</p>
+<p>Aqua further enhances securing Docker as follows:</p>
+<ul>
+<li aria-level="1"><strong>Event logging and reporting</strong>—granular audit trails of access activity, <a href="../../cloud-native-academy/docker-container/docker-scanning/index.html">scan Docker</a> commands, events, and coverage, container activity, system events, and secrets activity.</li>
+<li aria-level="1"><strong>CIS certified benchmark checks</strong>—assess node configuration against Docker and K8s CIS benchmarks with scheduled reporting and testing or Aqua OSS tools.</li>
+<li aria-level="1"><strong>Global compliance templates</strong>—pre-defined compliance policies meet security standards such as HIPPA, CIS, PCI, and NIST.</li>
+<li aria-level="1"><strong>Full user accountability</strong>—uses granular user accountability and monitored super-user permissions.</li>
+<li aria-level="1"><strong>“Thin OS” host compliance</strong>—monitor and scan host for malware, vulnerabilities, login activity, and to identify scan images kept on hosts.</li>
+<li aria-level="1"><strong>Compliance enforcement controls</strong>—only images and workloads that pass compliance checks can run in your environment.</li>
+</ul>
+<h4>Container Firewall for Docker</h4>
+<p>Aqua’s container firewall lets you visualize network connections, develop rules based on application services, and map legitimate connections automatically. Only whitelisted connections will be allowed, both within a Swarm or Kubernetes cluster, and also between clusters.</p>
+<h4>Secrets Management</h4>
+<p>Store your credentials as secrets, don&#8217;t leave them in your source code. Aqua securely transfers secrets to containers at runtime, encrypted at rest and in transit, and places them in memory with no persistence on disk, so they are only visible to the relevant container. Integrate Aqua’s solution with your current enterprise vault, including CyberArk, Hashicorp, AWS KMS or Azure Vault. You can revoke, update, and rotate secrets without restarting containers.</p></div>
+					
+
+
+					
+					
+
+
+
+				</div><!-- content -->
+
+						
+			</div><!-- main_content_column -->
+
+
+			
+			<div class="trd-ph-embedded match_blog_width" data-id="0c0644c3-87f6-4d19-b472-52adb57842ba"></div>
+
+
+			<div id="post_footer_meta" class="post_footer_meta match_blog_width">
+				<p><strong>Published under:</strong> <a href="../../category/container-security/index.html" rel="category tag">CONTAINER SECURITY</a></p>
+									<p><strong>Tags:</strong>  <a href="../../tag/container-security/index.html" rel="tag">Container Security</a>, <a href="../../tag/docker-security/index.html" rel="tag">Docker Security</a>, <a href="../../tag/runtime-security/index.html" rel="tag">Runtime Security</a></p>
+							</div><!-- post_meta -->
+			<div class="spacer"></div>
+			<div class="match_blog_width">
+			
+
+	<div class="author_card with_avatar">
+
+			<div class="author_avatar" style="background-image:url('https://www.aquasec.com/wp-content/uploads/2023/12/Ranijpg.jpg');"></div>
+		
+						<a href="../../authors/rani-osnat/index.html" class="author_name">Rani Osnat</a>
+			
+			<div class="author_bio">Rani is the SVP of Strategy at Aqua. Rani has worked in enterprise software companies more than 25 years, spanning project management, product management and marketing, including a decade as VP of marketing for innovative startups in the cyber-security and cloud arenas. Previously Rani was also a management consultant in the London office of Booz & Co. He holds an MBA from INSEAD in Fontainebleau, France. Rani is an avid wine geek, and a slightly less avid painter and electronic music composer.</div><!-- author_bio -->
+	
+			<div class="author_social_links">
+			<div class="social_links_wrap small_social_links">
+									<a href="https://il.linkedin.com/in/raniosnat" target="_blank" class="social_link linkedin">LinkedIn </a>
+									<a href="https://twitter.com/ranio1" target="_blank" class="social_link twitter">Twitter</a>
+							</div>
+		</div><!-- author_social_links -->
+		
+</div><!-- author_card -->
+
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Person",
+"name": "Rani Osnat",
+"url": "https:\/\/www.aquasec.com\/authors\/rani-osnat\/",
+"image": "https:\/\/www.aquasec.com\/wp-content\/uploads\/2023\/12\/Ranijpg.jpg",
+"description": "Rani is the SVP of Strategy at Aqua. Rani has worked in enterprise software companies more than 25 years, spanning project management, product management and marketing, including a decade as VP of marketing for innovative startups in the cyber-security and cloud arenas. Previously Rani was also a management consultant in the London office of Booz & Co. He holds an MBA from INSEAD in Fontainebleau, France. Rani is an avid wine geek, and a slightly less avid painter and electronic music composer.",
+"sameAs": ["https:\/\/il.linkedin.com\/in\/raniosnat","https:\/\/twitter.com\/ranio1"]
+}</script>
+
+			</div>
+
+						<div class="spacer"></div>
+			<div class="trd-ph-embedded trd_blogpost_readmore" data-id="c1b5dcad-43be-4cfe-ba26-4b44aca4d54f"></div>
+
+		</div><!-- container -->
+	</div><!-- maincontent_wrap -->
+		<!-- content ends -->
+
+	<div class="social_float_wrap">
+		<div class="container">
+			<div class="match_blog_width">
+				<div class="social_float">
+					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.aquasec.com/blog/docker-security-best-practices/" class="social_float_link facebook" aria-label="Share on Facebook" data-toggle="tooltip" data-placement="top" data-title="Share on Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M13.69,24.903h3.679V15.999h2.454l.325-3.068H17.369l.004-1.536c0-.8.076-1.229,1.224-1.229h1.534V7.097H17.676c-2.949,0-3.986,1.489-3.986,3.992v1.842H11.852V16H13.69Z" /></svg></a>
+					<a target="_blank" href="https://twitter.com/share?url=https://www.aquasec.com/blog/docker-security-best-practices/&amp;text=Top%2022%20Docker%20Security%20Best%20Practices%3A%20Ultimate%20Guide" class="social_float_link twitter" aria-label="Share on X"  data-toggle="tooltip" data-placement="top" data-title="Share on X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M18.05762,15.23193l5.87842-6.71875h-3.13867l-4.19336,4.79395-3.62549-4.79395h-5.8833l6.57324,8.59619-6.27393,7.1709h3.14014l4.6001-5.25684,4.02051,5.25684h5.74658l-6.84424-9.04834ZM10.94873,10.39209h1.04541l9.02197,11.92725h-.94434l-9.12305-11.92725Z" /></svg></a>
+					<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.aquasec.com/blog/docker-security-best-practices/&amp;title=Top%2022%20Docker%20Security%20Best%20Practices%3A%20Ultimate%20Guide" class="social_float_link linkedin" aria-label="Share on LinkedIn"  data-toggle="tooltip" data-placement="top" data-title="Share on Linkedin"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 32 32"><path d="M24.299,22.932V16.795c0-3.288-1.755-4.818-4.096-4.818a3.52865,3.52865,0,0,0-3.206,1.768V12.228H13.439c.047,1.005,0,10.704,0,10.704h3.558V16.954a2.43146,2.43146,0,0,1,.117-.867,1.94665,1.94665,0,0,1,1.825-1.301c1.288,0,1.803.981,1.803,2.42v5.727l3.557-.001ZM9.69,10.767a1.8553,1.8553,0,1,0,.023-3.699,1.85409,1.85409,0,1,0-.045,3.698H9.69Zm1.779,12.165V12.228H7.912V22.932Z" /></svg></a>
+				</div><!-- social_float -->
+			</div><!-- match_blog_width -->
+		</div><!-- container -->
+	</div><!-- social_float_wrap -->
+
+
+
+			<div class="toc_float_wrap is_pinned">
+			<div class="container">
+				<div class="match_blog_width">
+					<div class="toc_float">
+
+						<div class="toc_wrap">
+							<div class="toc_title">Table of Contents</div>
+						
+							<ul><li><a id="tocitem_1" href="#section-1">A Brief Introduction to Docker Security</a></li><li><a id="tocitem_2" href="#section-2">Common Security Risks in Docker</a></li><li><a id="tocitem_3" href="#section-3">22 Key Docker Security Best Practices</a></li><li><a id="tocitem_4" href="#section-4">Docker and Host Configuration</a></li><li><a id="tocitem_5" href="#section-5">Securing Images</a></li><li><a id="tocitem_6" href="#section-6">Monitoring Containers</a></li><li><a id="tocitem_7" href="#section-7">Bonus Section: Docker CIS Security Benchmark: Safe Docker Configuration</a></li><li><a id="tocitem_8" href="#section-8">Holistic Docker Security with Aqua</a></li></ul>						</div><!-- toc_wrap -->
+
+					</div><!-- toc_float -->
+				</div><!-- match_blog_width -->
+			</div><!-- container -->
+		</div><!-- toc_float_wrap -->
+
+		<script type="text/javascript">
+		var $j_st_toc = jQuery.noConflict();
+		$j_st_toc(document).ready(function() {
+
+			var $window_width = window.innerWidth ? window.innerWidth : $j_st_toc(window).width();
+
+			if ($window_width >= 1023) { // Adjust the breakpoint as needed
+
+
+
+
+				// toc float
+				var tocFloatController = new ScrollMagic.Controller();
+				var postPageWrap = $j_st_toc('.post_pagewrap');
+				var tocFloatWrap = $j_st_toc('.toc_float_wrap');
+				var postFooterMeta = $j_st_toc('#post_footer_meta');
+
+				var tocfloat_scene = new ScrollMagic.Scene({
+					triggerElement: postPageWrap[0],
+					triggerHook: 0,
+					offset: 0 // Start pinning from the very top of the page
+				})
+				.setPin(tocFloatWrap[0])
+				.addTo(tocFloatController);
+
+				// Add an additional scene to unpin the TOC when #post_footer_meta comes into view
+				var unpin_scene = new ScrollMagic.Scene({
+					triggerElement: postFooterMeta[0],
+					triggerHook: 1 // Triggers when #post_footer_meta comes into view from the bottom
+				})
+				.on('enter', function() {
+					tocFloatWrap.removeClass('is_pinned');
+				})
+				.on('leave', function() {
+					tocFloatWrap.addClass('is_pinned');
+				})
+				.addTo(tocFloatController);
+
+				
+
+				// init tocSpyController
+				var tocSpyController = new ScrollMagic.Controller();
+
+				// build scenes
+									new ScrollMagic.Scene({triggerElement: "#section_wrap_1",duration:$j_st_toc('#section_wrap_1').height()})
+						.setClassToggle("#tocitem_1", "active") // add class toggle
+												.addTo(tocSpyController);
+									new ScrollMagic.Scene({triggerElement: "#section_wrap_2",duration:$j_st_toc('#section_wrap_2').height()})
+						.setClassToggle("#tocitem_2", "active") // add class toggle
+												.addTo(tocSpyController);
+									new ScrollMagic.Scene({triggerElement: "#section_wrap_3",duration:$j_st_toc('#section_wrap_3').height()})
+						.setClassToggle("#tocitem_3", "active") // add class toggle
+												.addTo(tocSpyController);
+									new ScrollMagic.Scene({triggerElement: "#section_wrap_4",duration:$j_st_toc('#section_wrap_4').height()})
+						.setClassToggle("#tocitem_4", "active") // add class toggle
+												.addTo(tocSpyController);
+									new ScrollMagic.Scene({triggerElement: "#section_wrap_5",duration:$j_st_toc('#section_wrap_5').height()})
+						.setClassToggle("#tocitem_5", "active") // add class toggle
+												.addTo(tocSpyController);
+									new ScrollMagic.Scene({triggerElement: "#section_wrap_6",duration:$j_st_toc('#section_wrap_6').height()})
+						.setClassToggle("#tocitem_6", "active") // add class toggle
+												.addTo(tocSpyController);
+									new ScrollMagic.Scene({triggerElement: "#section_wrap_7",duration:$j_st_toc('#section_wrap_7').height()})
+						.setClassToggle("#tocitem_7", "active") // add class toggle
+												.addTo(tocSpyController);
+									new ScrollMagic.Scene({triggerElement: "#section_wrap_8",duration:$j_st_toc('#section_wrap_8').height()})
+						.setClassToggle("#tocitem_8", "active") // add class toggle
+												.addTo(tocSpyController);
+				
+
+			} //if width
+
+
+		});
+
+		</script>
+
+	
+
+
+
+</div><!-- post_pagewrap -->
+</div><!-- page -->
+
+
+<script type="text/javascript">
+var $j_st_social = jQuery.noConflict();
+$j_st_social(document).ready(function() {
+
+	var $window_width = window.innerWidth ? window.innerWidth : $j_st_social(window).width();
+
+	if ($window_width >= 1023) { // Adjust the breakpoint as needed
+
+		//social float
+		var socialFloatController = new ScrollMagic.Controller();
+		var postPageWrap = $j_st_social('.post_pagewrap');
+		var socialFloatWrap = $j_st_social('.social_float_wrap');
+		var sceneDuration = postPageWrap.outerHeight() - socialFloatWrap.outerHeight() - 100; 
+		var socialfloat_scene = new ScrollMagic.Scene({
+			triggerElement: postPageWrap[0],
+			duration: sceneDuration,
+			triggerHook: 0
+		})
+		.setPin(socialFloatWrap[0])
+		.addTo(socialFloatController);
+
+		socialfloat_scene.on('enter', function() {
+			socialFloatWrap.addClass('is_pinned');
+		});
+
+		socialfloat_scene.on('leave', function() {
+			socialFloatWrap.removeClass('is_pinned');
+		});
+
+		
+		$j_st_social('.social_float a').click(function() {
+			window.open($j_st_social(this).attr('href'),'title', 'toolbar=no,scrollbars=no,resizable=yes,width=600,height=580');
+			return false;
+		});
+
+
+		$j_st_social('[data-toggle="tooltip"]').each(function() {
+			tooltip_title = $j_st_social(this).data('title');
+			$j_st_social(this).tooltip({title: tooltip_title});
+		});
+		
+	} //if width
+
+
+});
+
+</script>
+
+
+
+
+<!-- script_box -->
+
+			
+
+	
+	
+<!-- footer_cta starts -->
+	<div class="footer_cta_wrap is_glass animatable">
+		<div class="se*ction">
+			<div class="container">
+
+				<div class="columns is-centered is-vcen*tered">
+
+					<div class="column is-12 footer_cta">
+
+													<div class="subtitle footer_cta_pretitle fadeInUp animationDelay_1">Need to secure enterprise workloads? </div>
+						
+						<div class="title footer_cta_title fadeInUp animationDelay_2">Aqua Cloud Native Application Protection Platform (CNAPP)</div>
+
+													<div class="subtitle footer_cta_subtitle fadeInUp animationDelay_3">Go cloud native with the experts!</div>
+						
+						<a href="https://www.aquasec.com/demo" class="button is-primary footer_cta_button fadeInUp animationDelay_4 dl_event_click"  data-dl-event="demo_footer" data-dl-category="request demo" data-dl-action="click button" data-dl-label="footer cta">Get Demo</a>					</div><!-- footer_cta -->
+
+				</div><!-- columns -->
+
+
+			</div><!-- container -->
+
+		</div><!-- section -->
+	</div><!-- footer_cta_wrap -->	
+<!-- footer_cta ends -->
+
+
+<!-- footer starts -->
+<section class="footer_wrap animatable">
+	<div class="section">
+
+					<div class="columns is-multiline">
+
+				<div class="column is-12 fadeInUp">
+					<a class="footer_logo" href="../../index.html" title="Aqua Security">Aqua Security</a>
+				</div>
+
+
+				<div class="column is-4-widescreen is-5-desktop is-10-tablet is-12-mobile footer_1 fadeInUp animationDelay_1">
+					Aqua Security is the pioneer in securing containerized cloud native applications from development to production. Aqua's full lifecycle solution prevents attacks by enforcing pre-deployment hygiene and mitigates attacks in real time in production, reducing mean time to repair and overall business risk. The Aqua Platform, a Cloud Native Application Protection Platform (CNAPP), integrates security from Code to Cloud, combining the power of agent and agentless technology into a single solution. With enterprise scale that doesn’t slow development pipelines, Aqua secures your future in the cloud. Founded in 2015, Aqua is headquartered in Boston, MA and Ramat Gan, IL protecting over 500 of the world’s largest enterprises. 
+
+					<div class="g2_link_wrap">
+						<a href="https://www.g2.com/products/aqua-security/reviews?utm_source=review-widget" target="_blank" title="Read reviews of Aqua Security on G2" rel="noreferrer"><img alt="Read Aqua Security reviews on G2" src="../../wp-content/themes/aqua3/images/g2_gray_8.png" width="300" height="151" loading="lazy" /></a>
+											</div>
+
+															<div class="social_links_wrap">
+						<a href="https://www.instagram.com/aquaseclife/" class="social_link instagram" target="_blank" title="instagram" rel="noreferrer"></a>
+						<a href="https://www.linkedin.com/company/aquasecteam" class="social_link linkedin" target="_blank" title="linkedin" rel="noreferrer"></a>
+						<a href="https://www.youtube.com/c/AquasecTeam" class="social_link youtube" target="_blank" title="youtube" rel="noreferrer"></a>
+						<a href="https://x.com/AquaSecurityHQ" class="social_link twitter" target="_blank" title="twitter" rel="noreferrer"></a>
+						<a href="https://github.com/aquasecurity" class="social_link git" target="_blank" title="git" rel="noreferrer"></a>
+						<a href="https://www.facebook.com/AquaSecTeam" class="social_link facebook" target="_blank" title="facebook" rel="noreferrer"></a>
+											</div>
+
+				</div><!-- column footer_1 -->
+			
+								<div class="column is-7-widescreen is-offset-1-widescreen is-7-desktop is-12-tablet is-12-mobile">
+
+					<div class="columns is-multiline">
+
+											<div class="column is-4-widescreen is-6-desktop is-6-tablet is-12-mobile footer_2 fadeInUp animationDelay_2">
+																<div class="footer_link_group">
+										<p>Use Cases</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../use-cases/devops-security/index.html" >Automate DevSecOps</a></li><li class="menu-item"><a href="../../use-cases/cloud-workload-security/index.html" >Modernize Security</a></li><li class="menu-item"><a href="../../use-cases/cndr-cloud-native-detection-and-reponse/index.html" >CNDR Cloud Native Detection & Response</a></li><li class="menu-item"><a href="../../use-cases/container-auditing-compliance/index.html" >Compliance and Auditing</a></li><li class="menu-item"><a href="../../products/serverless-container-functions/index.html" >Serverless Containers & Functions</a></li><li class="menu-item"><a href="../../use-cases/multi-cloud-and-hybrid-cloud/index.html" >Hybrid and Multi Cloud</a></li><li class="menu-item"><a href="../../solutions/federal/index.html" >Federal Cloud Native Security</a></li>										</ul><!-- menu -->
+									</div>
+																		<div class="footer_link_group">
+										<p>Environments</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../products/kubernetes-security/index.html" >Kubernetes Security</a></li><li class="menu-item"><a href="../../solutions/red-hat-openshift-container-security/index.html" >OpenShift Security</a></li><li class="menu-item"><a href="../../solutions/aws-container-security/index.html" >AWS Security</a></li><li class="menu-item"><a href="../../solutions/azure-container-security/index.html" >Azure Cloud Security</a></li><li class="menu-item"><a href="../../solutions/google-cloud-kubernetes-security/index.html" >Google Cloud Security</a></li><li class="menu-item"><a href="../../solutions/vmware-tanzu/index.html" >Security for VMware Tanzu</a></li><li class="menu-item"><a href="../../solutions/docker-container-security/index.html" >Docker Security</a></li>										</ul><!-- menu -->
+									</div>
+																		<div class="footer_link_group">
+										<p>Partners</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../partners/index.html#technology-alliances" >Technology Partners</a></li><li class="menu-item"><a href="../../partners/index.html#partner-with-us" >Partner With Us</a></li>										</ul><!-- menu -->
+									</div>
+									
+							
+
+
+						</div><!-- column footer_2 -->
+
+											<div class="column is-4-widescreen is-6-desktop is-6-tablet is-12-mobile footer_3 fadeInUp animationDelay_3">
+																<div class="footer_link_group">
+										<p>Resources</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../research/index.html" >Aqua Security Research</a></li><li class="menu-item"><a href="../../cloud-native-academy/index.html" >The Cloud Native Wiki</a></li><li class="menu-item"><a href="../../cloud-native-academy/kubernetes-101/kubernetes-complete-guide/index.html" >Kubernetes 101</a></li><li class="menu-item"><a href="../../cloud-native-academy/cspm/aws-cloud-security/index.html" >AWS Cloud Security</a></li><li class="menu-item"><a href="../../cloud-native-academy/docker-container/index.html" >Docker 101</a></li><li class="menu-item"><a href="../../resources/virtual-container-security-channel/index.html" >The Cloud Native Channel</a></li><li class="menu-item"><a href="https://info.aquasec.com/kubernetes-security" >O’Reilly Book: Kubernetes Security</a></li><li class="menu-item"><a href="../../cloud-native-academy/cnapp/what-is-cnapp/index.html" >CNAPP 101</a></li><li class="menu-item"><a href="../../cloud-native-academy/cspm/cloud-security-posture-management-cspm/index.html" >CSPM 101</a></li>										</ul><!-- menu -->
+									</div>
+																		<div class="footer_link_group">
+										<p>About Us</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../about-us/index.html" >About Aqua</a></li><li class="menu-item"><a href="../../about-us/news/index.html" >Newsroom</a></li><li class="menu-item"><a href="../../about-us/careers/index.html" >Careers</a></li><li class="menu-item"><a href="../../brand/index.html" >Brand Guidelines</a></li><li class="menu-item"><a href="../../trust/security/index.html" >Trust & Security</a></li><li class="menu-item"><a href="../../aquarantee-cloud-native-protection-warranty/index.html" >Aqua Cloud Native Protection FAQ</a></li><li class="menu-item"><a href="../../services/index.html" >Professional services</a></li>										</ul><!-- menu -->
+									</div>
+																		<div class="footer_link_group">
+										<p>Get in Touch</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../index.html" >Aqua Blog</a></li><li class="menu-item"><a href="../../about-us/contact-us/index.html" >Contact Us</a></li><li class="menu-item"><a href="https://success.aquasec.com/" >Success Portal</a></li>										</ul><!-- menu -->
+									</div>
+									
+							
+
+
+						</div><!-- column footer_3 -->
+
+											<div class="column is-4-widescreen is-6-desktop is-6-tablet is-12-mobile footer_4 fadeInUp animationDelay_4">
+																<div class="footer_link_group">
+										<p>Products</p>
+										<ul class="menu">
+											<li class="menu-item"><a href="../../aqua-cloud-native-security-platform/index.html" >Cloud Native Security Platform</a></li><li class="menu-item"><a href="../../products/cspm/index.html" >CSPM Cloud Security</a></li><li class="menu-item"><a href="../../products/container-security/index.html" >Container Security</a></li><li class="menu-item"><a href="../../products/kubernetes-security/index.html" >Kubernetes Security</a></li><li class="menu-item"><a href="../../products/serverless-container-functions/index.html" >Serverless Security</a></li><li class="menu-item"><a href="../../products/cloud-vm-security/index.html" >Cloud VM Security</a></li><li class="menu-item"><a href="../../products/container-analysis/index.html" >Dynamic Threat Analysis (DTA)</a></li><li class="menu-item"><a href="../../products/container-vulnerability-scanning/index.html" >Container Vulnerability Scanning</a></li><li class="menu-item"><a href="../../products/open-source-projects/index.html" >Open Source Container Security</a></li><li class="menu-item"><a href="../../integrations/index.html" >Platform Integrations</a></li>										</ul><!-- menu -->
+									</div>
+									
+															<a href="../../demo/index.html" class="button is-outlined neonbluearrowbutton is-spaced fadeInUp animationDelay_2 dl_event_click" target="_blank" data-dl-event="demo_footer" data-dl-category="demo" data-dl-action="click button" data-dl-label="footer">Get Started</a>
+								
+
+
+						</div><!-- column footer_4 -->
+
+					
+					</div><!-- columns -->
+				</div><!-- column is-7 -->
+
+			</div><!-- columns -->
+
+
+		
+		<div class="footer_copyright_wrap fadeInUp animationDelay_6">
+					
+			<div class="columns is-v*centered rev*erse-columns">
+				
+				<div class="column is-12">
+						<div class="footer_copyright">
+							Copyright &copy; 2024 Aqua Security Software Ltd. &nbsp; <a href="../../privacy/index.html">Privacy Policy</a> | <a href="../../terms-of-use/index.html">Terms of Use</a> | 
+							
+							<a class="cky-banner-element" title="Cookie Settings">Cookie Settings</a> | 
+
+							&nbsp;<div class="dropdown accessibility_dropdown">
+								<div class="dropdown-trigger">
+									<a class="topbar_link accessibility" title="Open accessibility options">Accessibility Tools</a>
+								</div>
+								<div class="dropdown-menu accessibility_menu">
+									<div class="dropdown-content">
+										<a class="dropdown-item accessibility_text_link is-active" data-mode="text_normal" title="Normal text size">Normal text size</a>
+										<a class="dropdown-item accessibility_text_link" data-mode="text_medium" title="Medium text size">Medium text size</a>
+										<a class="dropdown-item accessibility_text_link" data-mode="text_large" title="Large text size">Large text size</a>
+										<hr class="dropdown-divider">
+										<a class="dropdown-item accessibility_display_link is-active" data-mode="display_normal" title="Normal display">Normal display</a>
+										<a class="dropdown-item accessibility_display_link" data-mode="display_bw" title="Black & White display">Black & White display</a>
+										<a class="dropdown-item accessibility_display_link" data-mode="display_dark" title="High contrast display">High contrast display</a>
+										<hr class="dropdown-divider">
+										<a class="dropdown-item accessibility_toggle_link" data-mode="stop_animations" title="Stop transitions and animations">Stop transitions and animations</a>
+										<a class="dropdown-item accessibility_toggle_link" data-mode="show_underlines" title="Underline Links">Underline Links</a>
+									</div><!-- dropdown-content" -->
+								</div>
+							</div><!-- dropdown hover -->
+
+
+						</div>
+				</div>
+
+			</div><!-- columns -->
+
+		</div><!-- footer_copyright_wrap -->
+	
+		
+	</div><!-- section -->
+</section>
+
+<!-- footer ends -->
+
+<!-- schema starts -->
+<!-- schema ends -->
+
+<!-- datalayer starts -->
+<script type="text/javascript">
+var $jdl1 = jQuery.noConflict();
+$jdl1(document).ready(function(){
+
+	if($jdl1(".dl_promo_click").length) {
+		$jdl1(".dl_promo_click").click(function() {
+
+			if(window.dataLayer) {
+
+				dl_id = $jdl1(this).data('dl-id');
+				//console.log("dl_id: " + dl_id);
+
+				dl_name = $jdl1(this).data('dl-name');
+				//console.log("dl_name: " + dl_name);
+
+				dl_creative = $jdl1(this).data('dl-creative');
+				//console.log("dl_creative: " + dl_creative);
+
+				dl_position = $jdl1(this).data('dl-position');
+				//console.log("dl_position: " + dl_position);
+
+				dataLayer.push({
+					'event': 'promotionClick',
+					ecommerce: {
+						promoClick: {
+							promotions: [{
+							'id': dl_id,
+							'name': dl_name, 
+							'creative': dl_creative,
+							'position': dl_position
+							}]
+						}
+					}
+				});
+
+			}; //if datalayer
+
+			
+		}); //dl_promo_click click
+	}; //dl_promo_click length
+
+
+
+
+	if($jdl1(".dl_event_click").length) {
+		$jdl1(".dl_event_click").click(function() {
+
+			if(window.dataLayer) {
+
+				dl_event = $jdl1(this).data('dl-event');
+				//console.log("dl_event: " + dl_event);
+
+				dl_category = $jdl1(this).data('dl-category');
+				//console.log("dl_category: " + dl_category);
+
+				dl_action = $jdl1(this).data('dl-action');
+				//console.log("dl_action: " + dl_action);
+
+				dl_label = $jdl1(this).data('dl-label');
+				//console.log("dl_label: " + dl_label);
+
+				//console.log("------");
+				//return false;
+				dataLayer.push({
+					'event': dl_event,
+					'category': dl_category,
+					'action': dl_action,
+					'label': dl_label
+				});
+
+			}; //if datalayer
+
+					
+		}); //dl_event_click click
+	}; //dl_event_click length
+
+}); //jdl1
+</script><!-- datalayer ends -->
+
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="../../wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script></body>
+
+<!-- Mirrored from www.aquasec.com/blog/docker-security-best-practices/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Aug 2024 02:01:22 GMT -->
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
